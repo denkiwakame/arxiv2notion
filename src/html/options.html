@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div class="uk-container">
+      <div class="uk-margin uk-margin-bottom" uk-margin>
+        <legend class="uk-legend uk-margin-top">Notion Integration ID</legend>
+        <a
+          class="uk-form-label"
+          target="_blank"
+          href="https://www.notion.so/my-integrations/"
+          >https://www.notion.so/my-integrations/</a
+        >
+        <div class="uk-inline">
+          <button id="js-visible-btn"
+            class="uk-form-icon uk-form-icon-flip"
+            uk-icon="lock"
+          ></button>
+          <input
+            id="js-token-input"
+            class="uk-input"
+            type="password"
+            placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          />
+        </div>
+        <button id="js-save-btn" class="uk-icon-button uk-margin-small-left" uk-icon="plus" />
+      </div>
+      <div id="js-message-container"></div>
+    </div>
+  </body>
+</html>

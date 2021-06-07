@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
+$global-font-family: 'Titillium Web';
+// ref: uikit/src/scss/variables.scss
+$progress-height: 5px;
+$progress-bar-background: #9f9f9f;
+$badge-color: $progress-bar-background;
+$badge-background: #ddd;
+// default variables and mixins
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+// import uikit
+@import "uikit/src/scss/uikit.scss";
+
+body { width: 350px; }

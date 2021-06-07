@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "arxiv2notion",
+  "description": "easy-to-use arXiv clipper for notion.so",
+  "version": "0.0",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "permissions": [
+    "<all_urls>",
+    "*://api.notion.com/*",
+    "*://www.notion.so/*",
+    "storage",
+    "tabs"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

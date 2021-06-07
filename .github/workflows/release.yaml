@@ -1,0 +1,24 @@
+name: Releases
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.17.0"
+      - name: install
+        run: npm install
+      - name: build
+        run: npm run build
+      - name: pack
+        run: npm run pack
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "packages/*"
+          token: ${{secrets.GITHUB_TOKEN}}
