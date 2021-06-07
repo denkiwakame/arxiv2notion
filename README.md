@@ -8,7 +8,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 ## Getting Started
 - login to [notion.so](https://www.notion.so) by admin user
 - create databases where you save arXiv articles
-  - *add properties listed below.* `Title` `URL` `Publisher` `Authors` `Abstract`
+  - **add properties listed below.** `Title` `URL` `Publisher` `Authors` `Abstract`
   - note that you should create *extactly the same properties with listed names.*
 
 |property|type|
@@ -35,7 +35,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 ## Setup
 - right-click on the extension icon > `Options`
-  - copy *integration id* (not the secret token! see figures below) from https://www.notion.so/my-integrations/internal/${integration-id}
+  - copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
   - if your entered id is valid, you can see the following callback messages.
 
