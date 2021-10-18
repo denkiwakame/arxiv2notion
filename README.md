@@ -13,7 +13,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 |property|type|
 |-----|-----|
-|Title|Text|
+|Title|Title|
 |URL|URL|
 |Publisher|Select|
 |Authors|Text|
