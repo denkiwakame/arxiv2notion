@@ -8,7 +8,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 ## Getting Started
 - login to [notion.so](https://www.notion.so) by admin user
 - create databases where you save arXiv articles
-  - **follow this instructions** https://www.notion.so/guides/creating-a-database , do **NOT** create a new database by `/database` !
+  - **follow this instruction** https://www.notion.so/guides/creating-a-database , do **NOT** create a new database by `/database` !
   - **add properties listed below.** `Title` `URL` `Publisher` `Authors` `Abstract`
   - note that you should create *extactly the same properties with listed names.*
 
