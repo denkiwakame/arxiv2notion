@@ -53,7 +53,7 @@ Note that you must be logged in to notion.so when you use this extension.
 ## Build locally (for Developers)
 
 ```bash
-$ git clone https://github.com/denkiwakame/arxiv2scrap.git
+$ git clone https://github.com/denkiwakame/arxiv2notion.git
 $ npm install
 $ npm run build
 $ npm run watch # debug locally
