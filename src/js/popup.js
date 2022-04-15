@@ -17,6 +17,7 @@ class UI {
     this.client = new NotionClient();
     this.connectionTest();
     this.getCurrentTabUrl();
+    // this.getPaperInfo(TEST_URL);
   }
 
   getCurrentTabUrl() {
@@ -87,9 +88,10 @@ class UI {
     return paperId;
   }
 
-  setFormContents(paperTitle, abst, authors) {
+  setFormContents(paperTitle, abst, published, authors) {
     document.getElementById("js-title").value = paperTitle;
     document.getElementById("js-abst").value = abst;
+    document.getElementById("js-published").value = published;
     authors.forEach((author) => {
       console.log(author);
       const template = `<span class="uk-badge uk-margin-small-right uk-margin-small-top">{{ text }}</span>`;
@@ -123,8 +125,12 @@ class UI {
       }
     );
 
-    this.setFormContents(paperTitle, abst, authors);
-    return { title: paperTitle, abst: abst, authors: authors, url: url };
+    const published = entry.querySelector("published").textContent;
+    this.setFormContents(paperTitle, abst, published, authors);
+    return { title: paperTitle, abst: abst, authors: authors, url: url, published: published};
+
+    // this.setFormContents(paperTitle, abst, authors);
+    // return { title: paperTitle, abst: abst, authors: authors, url: url };
   }
 
   renderMessage(type, message, overwrite = false) {

@@ -52,6 +52,7 @@ export default class Notion {
     const abst = data.abst;
     const paperUrl = data.url;
     const authorsFormatted = data.authors.join(",");
+    const published = data.published;
 
     try {
       const url = this.apiBase + "pages";
@@ -114,6 +115,11 @@ export default class Notion {
               href: null,
             },
           ],
+        },
+        Published: {
+          id: "published",
+          type: "date",
+          date: { start: published, end: null },
         },
       };
 
