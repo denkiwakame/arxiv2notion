@@ -26,6 +26,7 @@ Download extensions: [Chrome](https://github.com/wangjksjtu/arxiv2notionplus/rel
 - Support Chrome, Safari and Firefox browsers
 
 ![image](doc/nerf_example1.png)
+![image](doc/arxiv2notionplus_db.png)
 <!-- ![image](doc/nerf_example2.png) -->
 
 
@@ -36,7 +37,7 @@ Download extensions: [Chrome](https://github.com/wangjksjtu/arxiv2notionplus/rel
   - `+ New integration`
   - associated workspace: select your workspace where you save arXiv articles
 - Invite the integration to target databases via `Share` -> `Invite`
-![image](doc/arxiv2notionplus_db.png)
+![invite_integration](doc/notion.png)
 
 Alternatively, you can follow the following steps to create database from scratch in notion
 <details>
@@ -58,7 +59,6 @@ Alternatively, you can follow the following steps to create database from scratc
 |Comment|Text|
 |Publisher|Select|
 
-![ref1](doc/notion.png)
 </details>
 
 ## Installation
