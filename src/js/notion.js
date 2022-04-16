@@ -51,8 +51,17 @@ export default class Notion {
     const title = data.title;
     const abst = data.abst;
     const paperUrl = data.url;
-    const authorsFormatted = data.authors.join(",");
+    const authorsFormatted = data.authors.join(", ");
     const published = data.published;
+    const comment = data.comment;
+    const authors = authorsFormatted.split(', ')
+
+    let author_multi_select = [];
+    authors.forEach(function(v){
+        let obj = {};
+        obj["name"] = v;
+        author_multi_select.push(obj);
+      });
 
     try {
       const url = this.apiBase + "pages";
@@ -98,28 +107,18 @@ export default class Notion {
         },
         Authors: {
           id: "authors",
-          type: "rich_text",
-          rich_text: [
-            {
-              type: "text",
-              text: { content: authorsFormatted, link: null },
-              annotations: {
-                bold: false,
-                italic: false,
-                strikethrough: false,
-                underline: false,
-                code: false,
-                color: "default",
-              },
-              plain_text: authorsFormatted,
-              href: null,
-            },
-          ],
+          type: "multi_select",
+          multi_select: author_multi_select,
         },
         Published: {
           id: "published",
           type: "date",
           date: { start: published, end: null },
+        },
+        Comment: {
+          id: "comment",
+          type: "url",
+          url: comment,
         },
       };
 

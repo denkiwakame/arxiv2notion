@@ -7,7 +7,7 @@ import thenChrome from "then-chrome";
 
 UIKit.use(Icons);
 
-const TEST_URL = "https://arxiv.org/abs/1810.00826";
+const TEST_URL = "https://arxiv.org/abs/2112.10703"; // "https://arxiv.org/abs/1810.00826";
 const ARXIV_API = "http://export.arxiv.org/api/query/search_query";
 
 class UI {
@@ -88,10 +88,11 @@ class UI {
     return paperId;
   }
 
-  setFormContents(paperTitle, abst, published, authors) {
+  setFormContents(paperTitle, abst, published, comment, authors) {
     document.getElementById("js-title").value = paperTitle;
     document.getElementById("js-abst").value = abst;
     document.getElementById("js-published").value = published;
+    document.getElementById("js-comment").value = comment;
     authors.forEach((author) => {
       console.log(author);
       const template = `<span class="uk-badge uk-margin-small-right uk-margin-small-top">{{ text }}</span>`;
@@ -124,13 +125,17 @@ class UI {
         return author.textContent.trim();
       }
     );
-
     const published = entry.querySelector("published").textContent;
-    this.setFormContents(paperTitle, abst, published, authors);
-    return { title: paperTitle, abst: abst, authors: authors, url: url, published: published};
-
-    // this.setFormContents(paperTitle, abst, authors);
-    // return { title: paperTitle, abst: abst, authors: authors, url: url };
+    const comment_query = entry.querySelector("comment");
+    let comment = "";
+    if (comment_query == null) {
+      console.log("Empty comment in arXiv page");
+      comment = "N/A"
+    } else {
+      comment = comment_item.textContent;
+    }
+    this.setFormContents(paperTitle, abst, published, comment, authors);
+    return { title: paperTitle, abst: abst, authors: authors, url: url, published: published, comment: comment};
   }
 
   renderMessage(type, message, overwrite = false) {
