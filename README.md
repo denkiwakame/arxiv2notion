@@ -4,9 +4,19 @@
 
 Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/) (original repo: https://github.com/denkiwakame/arxiv2notion MIT License)
 
-![demo](doc/safari_demo.gif)
-[[Chrome demo](doc/chrome_demo.gif)],
-[[Firefox demo](doc/firefox_demo.gif)]
+Download extensions: [Chrome](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.chrome.zip), [Safari](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.safari.zip), [Firefox](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.firefox.zip)
+
+![Safari demo](doc/safari_demo.gif)
+
+<details>
+<summary>Chrome demo</summary> 
+<img src="doc/chrome_demo.gif"/>
+</details>
+
+<details>
+<summary>Firefox demo</summary> 
+<img src="doc/firefox_demo.gif"/>
+</details>
 
 ## More Features: arxiv2notion+
 - Add the publication date for easier tracking
