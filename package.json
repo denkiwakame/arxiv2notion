@@ -1,8 +1,8 @@
 {
-  "name": "arxiv2notion",
-  "version": "0.0.1",
+  "name": "arxiv2notionplus",
+  "version": "0.1.0",
   "description": "easy-to-use arXiv clipper",
-  "author": "denkiwakame <denkivvakame@gmail.com>",
+  "author": "wangjksjtu <wangjksjtu@gmail.com>",
   "license": "MIT License",
   "scripts": {
     "dev": "webpack --mode development",
