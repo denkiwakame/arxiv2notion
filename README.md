@@ -4,7 +4,9 @@
 
 Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/) (original repo: https://github.com/denkiwakame/arxiv2notion MIT License)
 
-![demo](doc/arxiv2notion.gif)
+![demo](doc/safari_demo.gif)
+[[Chrome demo](doc/chrome_demo.gif)],
+[[Firefox demo](doc/firefox_demo.gif)]
 
 ## More Features on arxiv2notion+
 - Add the publication date for easier tracking
@@ -19,9 +21,12 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 ## Create databases in notion
 - **The easiest approach is to clone the public template [here](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187) to your own notion workspace**
-- You can create multiple databases as well for difficult type of articles
-
-![image](doc/arxiv2notion_table.png)
+- follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
+  - navigate to [My Integrations](https://www.notion.so/my-integrations)
+  - `+ New integration`
+  - associated workspace: select your workspace where you save arXiv articles
+- invite the integration to target databases via `Share` -> `Invite`
+![image](doc/arxiv2notionplus_db.png)
 
 Alternatively, you can follow the following steps to create database from scratch in notion
 <details>
@@ -42,12 +47,6 @@ Alternatively, you can follow the following steps to create database from scratc
 |Published|Date|
 |Comment|Text|
 |Publisher|Select|
-
-- follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
-  - navigate to [My Integrations](https://www.notion.so/my-integrations)
-  - `+ New integration`
-  - associated workspace: select your workspace where you save arXiv articles
-- invite the integration to target databases via `Share` -> `Invite`
 
 ![ref1](doc/notion.png)
 </details>
