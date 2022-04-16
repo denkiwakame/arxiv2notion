@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "arxiv2notion",
+  "name": "arxiv2notionplus",
   "description": "easy-to-use arXiv clipper for notion.so",
   "version": "0.1.0",
   "icons": {
