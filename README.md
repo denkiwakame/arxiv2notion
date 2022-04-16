@@ -1,9 +1,19 @@
-# arxiv2notion
+# arxiv2notion+
+
 [![build](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml/badge.svg)](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml)
 
-Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
+Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/) (original repo: https://github.com/denkiwakame/arxiv2notion MIT License)
 
 ![demo](doc/arxiv2notion.gif)
+
+## More Features on arxiv2notion+
+- Adding the publication date for easier tracking
+- Adding the comment parser for quick access to the potential project homepage or code link (if available)
+- Replacing the author field from `text` to `multi-select` to fully leverage the search/filter in notion
+
+![image](https://user-images.githubusercontent.com/22170175/163656797-33713e84-60e9-47bc-bed2-7c947e0e6508.png)
+![image](https://user-images.githubusercontent.com/22170175/163657009-c3b3510c-849f-4e21-9098-002be7215493.png)
+
 
 ## Getting Started
 - login to [notion.so](https://www.notion.so) by admin user
@@ -16,9 +26,10 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 |-----|-----|
 |Title|Title|
 |URL|URL|
-|Publisher|Select|
-|Authors|Text|
+|Authors|Multi-Select|
 |Abstract|Text|
+|Published|Date|
+|Publisher|Select|
 
 - follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
   - navigate to [My Integrations](https://www.notion.so/my-integrations)
@@ -59,3 +70,6 @@ $ npm run build
 $ npm run watch # debug locally
 $ npm run pack  # packaging to zip
 ```
+
+## Acknowledgement
+This repo makes some small enhancements on parsing the authors/publication dates in arxiv pages. Thanks to [Mai Nishimura](https://github.com/denkiwakame) for the awesome [arxiv2notion](https://github.com/denkiwakame) repo!
