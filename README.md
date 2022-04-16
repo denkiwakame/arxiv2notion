@@ -21,6 +21,8 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - **The easiest approach is to clone the public template [here](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187) to your own notion workspace**
 - You can create multiple databases as well for difficult type of articles
 
+![image](doc/arxiv2notion_table.png)
+
 Alternatively, you can follow the following steps to create database from scratch in notion
 <details>
 <summary>Click here to expand!</summary> 
