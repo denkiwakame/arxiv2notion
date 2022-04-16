@@ -11,8 +11,8 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - Adding the comment parser for quick access to the potential project homepage or code link (if available)
 - Replacing the author field from `text` to `multi-select` to fully leverage the search/filter in notion
 
-![image](https://user-images.githubusercontent.com/22170175/163656797-33713e84-60e9-47bc-bed2-7c947e0e6508.png)
-![image](https://user-images.githubusercontent.com/22170175/163657009-c3b3510c-849f-4e21-9098-002be7215493.png)
+![image](doc/nerf_example1.png)
+![image](doc/nerf_example2.png)
 
 
 ## Getting Started
@@ -29,6 +29,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 |Authors|Multi-Select|
 |Abstract|Text|
 |Published|Date|
+|Comment|Text|
 |Publisher|Select|
 
 - follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
