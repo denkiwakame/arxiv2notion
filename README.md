@@ -45,7 +45,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 ## Installation
 - download extension package from https://github.com/wangjksjtu/arxiv2notionplus/releases
-- for Chrome, navigate to `chrome://extension`
+- for Chrome, navigate to `chrome://extensions`
   - drag and drop the extension from your file manager anywhere onto the extensions page
   - or unzip the extension and `load unpacked` in developer mode
 
