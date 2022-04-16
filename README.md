@@ -64,11 +64,11 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - (**Chrome**) right-click on the extension icon > `Options`
   - copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
-- (**Firefox**) right-click on the extension icon > `Manage Extension`
-  - go to `preferences` tab and copy **integration id (not the secret token!)**
-  - paste the `integration id` and click on `+` button.
 - (**Safari**) right-click on the extension icon > `Manage Extension`
   - click `preferences` to enter a new page and copy **integration id (not the secret token!)**
+  - paste the `integration id` and click on `+` button.
+- (**Firefox**) right-click on the extension icon > `Manage Extension`
+  - go to `preferences` tab and copy **integration id (not the secret token!)**
   - paste the `integration id` and click on `+` button.
 
 **If your entered id is valid, you can see the following callback messages.**
