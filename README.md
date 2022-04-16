@@ -11,9 +11,10 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - Adding the comment parser for quick access to the potential project homepage or code link (if available)
 - Replacing the author field from `text` to `multi-select` to fully leverage the search/filter in notion
 - Public notion database/table [template](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187)
+- Support both Chrome and Firefox
 
 ![image](doc/nerf_example1.png)
-![image](doc/nerf_example2.png)
+<!-- ![image](doc/nerf_example2.png) -->
 
 
 ## Getting Started
@@ -48,12 +49,21 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - for Chrome, navigate to `chrome://extensions`
   - drag and drop the extension from your file manager anywhere onto the extensions page
   - or unzip the extension and `load unpacked` in developer mode
+- for Firefox, navigate to `about:debugging`
+  - click `This Firefox`
+  - click `Load Temporary Add-on`
+  - unzip the extension `arxiv2notionplus.firefox.zip`
+  - click `arxiv2notionplus.chrome.crx` in the unzipped folder
 
 ## Setup
-- right-click on the extension icon > `Options`
+- (**Chrome**) right-click on the extension icon > `Options`
   - copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
-  - if your entered id is valid, you can see the following callback messages.
+- (**Firefox**) right-click on the extension icon > `Manage Extension`
+  - Go to `preferences` tab and copy **integration id (not the secret token!)**
+  - paste the `integration id` and click on `+` button.
+
+**If your entered id is valid, you can see the following callback messages.**
 
 ```
 In order to avoid storing Notion API key directoly onto chrome local storage,
@@ -61,9 +71,9 @@ arxiv2notion requests API token on-demand via integration ID when you are logged
 Note that you must be logged in to notion.so when you use this extension.
 ```
 
-![ref2](doc/integrataion.png)
-
-![ref3](doc/option.png)
+|  integration id  | successful connection messages  |
+|---|---|
+| ![ref2](doc/integrataion.png) | ![image](https://user-images.githubusercontent.com/22170175/163661354-c9e7ab2c-c8e9-4fa2-9301-b46997e05d5e.png) |
 
 ## Build locally (for Developers)
 
