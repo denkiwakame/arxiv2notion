@@ -10,6 +10,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - Adding the publication date for easier tracking
 - Adding the comment parser for quick access to the potential project homepage or code link (if available)
 - Replacing the author field from `text` to `multi-select` to fully leverage the search/filter in notion
+- Public notion database/table [template](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187)
 
 ![image](doc/nerf_example1.png)
 ![image](doc/nerf_example2.png)
@@ -39,6 +40,8 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - invite the integration to target databases via `Share` -> `Invite`
 
 ![ref1](doc/notion.png)
+
+**You can also use the public template [here](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187)**
 
 ## Installation
 - download extension package from https://github.com/wangjksjtu/arxiv2notionplus/releases
