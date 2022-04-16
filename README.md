@@ -8,7 +8,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 [[Chrome demo](doc/chrome_demo.gif)],
 [[Firefox demo](doc/firefox_demo.gif)]
 
-## More Features on arxiv2notion+
+## More Features: arxiv2notion+
 - Add the publication date for easier tracking
 - Add the comment parser for quick access to the potential project homepage or code link (if available)
 - Replace the author field from `text` to `multi-select` to fully leverage the search/filter in notion
@@ -21,22 +21,22 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 ## Create databases in notion
 - **The easiest approach is to clone the public template [here](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187) to your own notion workspace**
-- follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
+- Follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
   - navigate to [My Integrations](https://www.notion.so/my-integrations)
   - `+ New integration`
   - associated workspace: select your workspace where you save arXiv articles
-- invite the integration to target databases via `Share` -> `Invite`
+- Invite the integration to target databases via `Share` -> `Invite`
 ![image](doc/arxiv2notionplus_db.png)
 
 Alternatively, you can follow the following steps to create database from scratch in notion
 <details>
 <summary>Click here to expand!</summary> 
 
-- login to [notion.so](https://www.notion.so) by admin user
-- create databases where you save arXiv articles
-  - **follow this instruction** https://www.notion.so/guides/creating-a-database , do **NOT** create a new database by `/database` !
-  - **add properties listed below.** `Title` `URL` `Publisher` `Authors` `Abstract`
-  - note that you should create *extactly the same properties with listed names.*
+- Login to [notion.so](https://www.notion.so) by admin user
+- Create databases where you save arXiv articles
+  - **Follow this instruction** https://www.notion.so/guides/creating-a-database , do **NOT** create a new database by `/database` !
+  - **Add properties listed below.** `Title` `URL` `Publisher` `Authors` `Abstract`
+  - Note that you should create *extactly the same properties with listed names.*
 
 |property|type|
 |-----|-----|
@@ -52,32 +52,32 @@ Alternatively, you can follow the following steps to create database from scratc
 </details>
 
 ## Installation
-- download extension package from https://github.com/wangjksjtu/arxiv2notionplus/releases
-- (**Chrome**) navigate to `chrome://extensions`
+- Download extension package from https://github.com/wangjksjtu/arxiv2notionplus/releases
+- (**Chrome**) Open Chrome then enter `chrome://extensions` in the URL bar
   - drag and drop the extension from your file manager anywhere onto the extensions page
   - or unzip the extension and `load unpacked` in developer mode
 - (**Safari**) 
-  - enable develop mode in safari: `Safari` > `Preferences` > `Advanced` > check "Show Develop menu in menu bar"
-  - allow unsigned extensions: `Menu bar` > `Develop` > check "Allow Unsigned Extensions"
-  - unzip the extension `arxiv2notionplus.safari.zip` and click `arxiv2notion` application
+  - Enable develop mode in safari: `Safari` > `Preferences` > `Advanced` > check "Show Develop menu in menu bar"
+  - Allow unsigned extensions: `Menu bar` > `Develop` > check "Allow Unsigned Extensions"
+  - Unzip the extension `arxiv2notionplus.safari.zip` and click `arxiv2notion` application
   - Enable the extension from the extensions list (`Safari` > `Preferences` > `Extensions`)
-- (**Firefox**) navigate to `about:debugging`
-  - click `This Firefox`
-  - click `Load Temporary Add-on`
-  - unzip the extension `arxiv2notionplus.firefox.zip`
-  - click `arxiv2notionplus.chrome.crx` in the unzipped folder
+- (**Firefox**) Open Firefox then enter `about:debugging` in the URL bar
+  - Click `This Firefox`
+  - Click `Load Temporary Add-on`
+  - Unzip the extension `arxiv2notionplus.firefox.zip`
+  - Click `arxiv2notionplus.chrome.crx` in the unzipped folder
 
 ## Setup
-- (**Chrome**) right-click on the extension icon > `Options`
-  - copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
-  - paste the `integration id` and click on `+` button.
-- (**Safari**) right-click on the extension icon > `Manage Extension`
-  - click `Always Allow on Every Website` (or allow always allow extension for `arxiv.org`) - you will see some warnings on the icon if this step is not conducted; you can also grant the permission there ;)
-  - click `preferences` to enter a new page and copy **integration id (not the secret token!)**
-  - paste the `integration id` and click on `+` button.
-- (**Firefox**) right-click on the extension icon > `Manage Extension`
-  - go to `preferences` tab and copy **integration id (not the secret token!)**
-  - paste the `integration id` and click on `+` button.
+- (**Chrome**) Right-click on the extension icon > `Options`
+  - Copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
+  - Paste the `integration id` and click on `+` button.
+- (**Safari**) Right-click on the extension icon > `Manage Extension`
+  - Click `Always Allow on Every Website` (or allow always allow extension for `arxiv.org`) - you will see some warnings on the icon if this step is not conducted; you can also grant the permission there ;)
+  - Click `preferences` to enter a new page and copy **integration id (not the secret token!)**
+  - Paste the `integration id` and click on `+` button.
+- (**Firefox**) Right-click on the extension icon > `Manage Extension`
+  - Go to `preferences` tab and copy **integration id (not the secret token!)**
+  - Paste the `integration id` and click on `+` button.
 
 **If your entered id is valid, you can see the following callback messages.**
 
