@@ -65,6 +65,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
   - copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
 - (**Safari**) right-click on the extension icon > `Manage Extension`
+  - click `Always Allow on Every Website` (or allow always allow extension for `arxiv.org`) - you will see some warnings on the icon if this step is not conducted; you can also grant the permission there ;)
   - click `preferences` to enter a new page and copy **integration id (not the secret token!)**
   - paste the `integration id` and click on `+` button.
 - (**Firefox**) right-click on the extension icon > `Manage Extension`
