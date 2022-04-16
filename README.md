@@ -11,7 +11,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - Adding the comment parser for quick access to the potential project homepage or code link (if available)
 - Replacing the author field from `text` to `multi-select` to fully leverage the search/filter in notion
 - Public notion database/table [template](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187)
-- Support both Chrome and Firefox
+- Support both Chrome, Safari and Firefox
 
 ![image](doc/nerf_example1.png)
 <!-- ![image](doc/nerf_example2.png) -->
@@ -46,10 +46,15 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 ## Installation
 - download extension package from https://github.com/wangjksjtu/arxiv2notionplus/releases
-- for Chrome, navigate to `chrome://extensions`
+- (**Chrome**) navigate to `chrome://extensions`
   - drag and drop the extension from your file manager anywhere onto the extensions page
   - or unzip the extension and `load unpacked` in developer mode
-- for Firefox, navigate to `about:debugging`
+- (**Safari**) 
+  - enable develop mode in safari: `Safari` > `Preferences` > `Advanced` > check "Show Develop menu in menu bar"
+  - allow unsigned extensions: `Menu bar` > `Develop` > check "Allow Unsigned Extensions"
+  - unzip the extension `arxiv2notionplus.safari.zip` and click `arxiv2notion` application
+  - Enable the extension from the extensions list (`Safari` > `Preferences` > `Extensions`)
+- (**Firefox**) navigate to `about:debugging`
   - click `This Firefox`
   - click `Load Temporary Add-on`
   - unzip the extension `arxiv2notionplus.firefox.zip`
@@ -60,7 +65,10 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
   - copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
 - (**Firefox**) right-click on the extension icon > `Manage Extension`
-  - Go to `preferences` tab and copy **integration id (not the secret token!)**
+  - go to `preferences` tab and copy **integration id (not the secret token!)**
+  - paste the `integration id` and click on `+` button.
+- (**Safari**) right-click on the extension icon > `Manage Extension`
+  - click `preferences` to enter a new page and copy **integration id (not the secret token!)**
   - paste the `integration id` and click on `+` button.
 
 **If your entered id is valid, you can see the following callback messages.**
