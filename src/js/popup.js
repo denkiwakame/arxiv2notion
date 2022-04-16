@@ -132,7 +132,7 @@ class UI {
       console.log("Empty comment in arXiv page");
       comment = "N/A"
     } else {
-      comment = comment_item.textContent;
+      comment = comment_query.textContent;
     }
     this.setFormContents(paperTitle, abst, published, comment, authors);
     return { title: paperTitle, abst: abst, authors: authors, url: url, published: published, comment: comment};
