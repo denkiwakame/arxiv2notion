@@ -1,36 +1,28 @@
-# arxiv2notion+
+# arxiv2notion
 
 [![build](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml/badge.svg)](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml)
 
-Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/) (original repo: https://github.com/denkiwakame/arxiv2notion MIT License)
+✨ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
 
-Download extensions: [Chrome](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.chrome.zip), [Safari](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.safari.zip), [Firefox](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.firefox.zip)
+📦 Download extensions: [Chrome](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.chrome.zip), [Safari](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.safari.zip), [Firefox](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.firefox.zip)
 
 ![Safari demo](doc/safari_demo.gif)
 
 <details>
-<summary>Chrome demo</summary> 
+<summary>Chrome demo</summary>
 <img src="doc/chrome_demo.gif"/>
 </details>
 
 <details>
-<summary>Firefox demo</summary> 
+<summary>Firefox demo</summary>
 <img src="doc/firefox_demo.gif"/>
 </details>
 
-## More Features: arxiv2notion+
-- Add the publication date for easier tracking
-- Add the comment parser for quick access to the potential project homepage or code link (if available)
-- Replace the author field from `text` to `multi-select` to fully leverage the search/filter in notion
-- Release a public notion database/table [template](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187) to simplify the notion setup
-- Support Chrome, Safari and Firefox browsers
-
 ![image](doc/nerf_example1.png)
 ![image](doc/arxiv2notionplus_db.png)
-<!-- ![image](doc/nerf_example2.png) -->
-
 
 ## Create databases in notion
+### from template
 - **The easiest approach is to clone the public template [here](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187) to your own notion workspace**
 - Follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
   - navigate to [My Integrations](https://www.notion.so/my-integrations)
@@ -39,9 +31,10 @@ Download extensions: [Chrome](https://github.com/wangjksjtu/arxiv2notionplus/rel
 - Invite the integration to target databases via `Share` -> `Invite`
 ![invite_integration](doc/notion.png)
 
-Alternatively, you can follow the following steps to create database from scratch in notion
+### manually
+- Alternatively, you can follow the following steps to create database from scratch in notion
 <details>
-<summary>Click here to expand!</summary> 
+<summary>Click here to expand!</summary>
 
 - Login to [notion.so](https://www.notion.so) by admin user
 - Create databases where you save arXiv articles
@@ -66,7 +59,7 @@ Alternatively, you can follow the following steps to create database from scratc
 - (**Chrome**) Open Chrome then enter `chrome://extensions` in the URL bar
   - drag and drop the extension from your file manager anywhere onto the extensions page
   - or unzip the extension and `load unpacked` in developer mode
-- (**Safari**) 
+- (**Safari**)
   - Enable develop mode in safari: `Safari` > `Preferences` > `Advanced` > check "Show Develop menu in menu bar"
   - Allow unsigned extensions: `Menu bar` > `Develop` > check "Allow Unsigned Extensions"
   - Unzip the extension `arxiv2notionplus.safari.zip` and click `arxiv2notion` application
@@ -111,5 +104,8 @@ $ npm run watch # debug locally
 $ npm run pack  # packaging to zip
 ```
 
-## Acknowledgement
-This repo makes some small enhancements on parsing the authors/publication dates in arxiv pages. Thanks to [Mai Nishimura](https://github.com/denkiwakame) for the awesome [arxiv2notion](https://github.com/denkiwakame) repo!
+## Contributors
+- Maintainers: @denkiwakame, @wangjksjtu
+<a href="https://github.com/denkiwakame/arxiv2notion/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=denkiwakame/arxiv2notion" />
+</a>
