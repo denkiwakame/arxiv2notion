@@ -4,22 +4,43 @@
   <body>
     <div class="uk-container">
       <div class="uk-margin uk-margin-top">
-        <textarea id="js-title" class="uk-input" type="text" placeholder="title"></textarea>
+        <label class="uk-form-label" for="form-stacked-text">title</label>
+        <textarea
+          id="js-title"
+          class="uk-input"
+          type="text"
+          placeholder="title"
+        ></textarea>
       </div>
       <div class="uk-margin">
-        <textarea id="js-abst"
+        <label class="uk-form-label" for="form-stacked-text">abstract</label>
+        <textarea
+          id="js-abst"
           class="uk-textarea"
           rows="7"
           placeholder="abstract"
         ></textarea>
       </div>
       <div class="uk-margin">
-      <textarea id="js-published" class="uk-input" type="text" placeholder="published date"></textarea>
+        <label class="uk-form-label" for="form-stacked-text">published date</label>
+        <input
+          id="js-published"
+          class="uk-input uk-form-small"
+          type="text"
+          placeholder="published date"
+        ></input>
       </div>
       <div class="uk-margin">
-        <textarea id="js-comment" class="uk-input" type="text" placeholder="comment"></textarea>
+        <label class="uk-form-label" for="form-stacked-text">comment</label>
+        <textarea
+          id="js-comment"
+          class="uk-input"
+          type="text"
+          placeholder="comment"
+        ></textarea>
       </div>
       <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">database</label>
         <select class="uk-select" id="js-select-database"></select>
         <div id="js-chip-container"></div>
         <progress
@@ -28,7 +49,11 @@
           value="0"
           max="100"
         ></progress>
-        <button id="js-save" class="uk-icon-button uk-icon-large uk-align-center uk-margin-bottom" uk-icon="heart" />
+        <button
+          id="js-save"
+          class="uk-icon-button uk-icon-large uk-align-center uk-margin-bottom"
+          uk-icon="heart"
+        />
       </div>
       <div class="uk-margin">
         <div id="js-message-container"></div>
@@ -36,4 +61,3 @@
     </div>
   </body>
 </html>
-

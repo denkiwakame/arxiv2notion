@@ -5,10 +5,12 @@ $progress-height: 5px;
 $progress-bar-background: #9f9f9f;
 $badge-color: $progress-bar-background;
 $badge-background: #ddd;
+$form-label-color: #aaa;
+$form-label-font-size: 0.7rem;
 // default variables and mixins
 @import "uikit/src/scss/variables-theme.scss";
 @import "uikit/src/scss/mixins-theme.scss";
 // import uikit
 @import "uikit/src/scss/uikit.scss";
 
-body { width: 350px; }
+body { width: 400px; }
