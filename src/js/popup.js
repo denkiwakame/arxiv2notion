@@ -7,7 +7,8 @@ import thenChrome from "then-chrome";
 
 UIKit.use(Icons);
 
-const TEST_URL = "https://arxiv.org/abs/2112.10703"; // "https://arxiv.org/abs/1810.00826";
+// const TEST_URL = "https://arxiv.org/abs/2112.10703";
+// const TEST_URL = "https://arxiv.org/abs/1810.00826";
 const ARXIV_API = "http://export.arxiv.org/api/query/search_query";
 
 class UI {
@@ -17,7 +18,7 @@ class UI {
     this.client = new NotionClient();
     this.connectionTest();
     this.getCurrentTabUrl();
-    // this.getPaperInfo(TEST_URL);
+    //     this.getPaperInfo(TEST_URL);
   }
 
   getCurrentTabUrl() {
@@ -127,15 +128,16 @@ class UI {
     );
     const published = entry.querySelector("published").textContent;
     const comment_query = entry.querySelector("comment");
-    let comment = "";
-    if (comment_query == null) {
-      console.log("Empty comment in arXiv page");
-      comment = "N/A"
-    } else {
-      comment = comment_query.textContent;
-    }
+    const comment = !comment_query ? "none" : comment_query.textContent;
     this.setFormContents(paperTitle, abst, published, comment, authors);
-    return { title: paperTitle, abst: abst, authors: authors, url: url, published: published, comment: comment};
+    return {
+      title: paperTitle,
+      abst: abst,
+      authors: authors,
+      url: url,
+      published: published,
+      comment: comment,
+    };
   }
 
   renderMessage(type, message, overwrite = false) {
