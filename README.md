@@ -24,7 +24,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
   - navigate to [My Integrations](https://www.notion.so/my-integrations)
   - `+ New integration`
   - associated workspace: select your workspace where you save arXiv articles
-- invite the integration to target databases via `Share` -> `Invite`
+- add connection to target databases via `...` > `Add connections` > `arxiv2notion`
 
 ![ref1](doc/notion.png)
 
@@ -36,7 +36,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 ## Setup
 - right-click on the extension icon > `Options`
-  - copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
+  - copy **integration id (not the secret token!)** (see figures below) from `https://hwww.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
   - if your entered id is valid, you can see the following callback messages.
 
