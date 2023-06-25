@@ -1,6 +1,6 @@
 {
   "name": "arxiv2notion",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "easy-to-use arXiv clipper",
   "author": "denkiwakame <denkivvakame@gmail.com>",
   "license": "MIT License",

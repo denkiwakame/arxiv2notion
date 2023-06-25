@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "arxiv2notion",
   "description": "easy-to-use arXiv clipper for notion.so",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icons": {
     "128": "icon128.png"
   },
