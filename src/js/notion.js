@@ -54,14 +54,14 @@ export default class Notion {
     const authorsFormatted = data.authors.join(", ");
     const published = data.published;
     const comment = data.comment;
-    const authors = authorsFormatted.split(', ')
+    const authors = authorsFormatted.split(", ");
 
     let author_multi_select = [];
-    authors.forEach(function(v){
-        let obj = {};
-        obj["name"] = v;
-        author_multi_select.push(obj);
-      });
+    authors.forEach(function (v) {
+      let obj = {};
+      obj["name"] = v;
+      author_multi_select.push(obj);
+    });
 
     try {
       const url = this.apiBase + "pages";
