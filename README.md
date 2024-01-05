@@ -13,15 +13,15 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 ## ⚙️ Setup
 
-### :one: Add arxiv2notion integration
+### 1) Add arxiv2notion integration
 - follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
   - navigate to [My Integrations](https://www.notion.so/my-integrations)
   - `+ New integration`
   - **associated workspace:** select your workspace where you save arXiv articles
 
-<img src="doc/my_integrataion.png" height="300">
+<img src="doc/my_integration.png" height="300">
 
-### :two: Configure the extension
+### 2) Configure the extension
 - right-click on the extension icon > `Options`
   - copy **integration id (not the secret token!)** (see figures below) from `https://hwww.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
@@ -33,16 +33,16 @@ arxiv2notion requests API token on-demand via integration ID when you are logged
 Note that you must be logged in to notion.so when you use this extension.
 ```
 
-<img src="doc/integrataion_id.png" height="300">
+<img src="doc/integration_id.png" height="300">
 <img src="doc/option.png" height="300">
 
-### :three: Create databases in Notion from template (recommended)
+### 3) Create databases in Notion from template (recommended)
 - clone the public template [here](https://denkiwakame.notion.site/597cdd58bded4375b1cbe073b2ed6f5d?v=63fcbfda57824b239b66e52dde841cdf) to your own notion workspace
 - add connection to target databases via `...` > `+ Add connections` > `arxiv2notion`
 
 ![invite_integration](doc/notion.png)
 
-#### or create databases manually
+#### :thinking: or create databases manually
 - alternatively, you can follow the following steps to create database from scratch in notion
 - login to [notion.so](https://www.notion.so) by admin user
 - create databases where you save arXiv articles
@@ -60,7 +60,7 @@ Note that you must be logged in to notion.so when you use this extension.
 |Comment|Text|
 |Publisher|Select|
 
-### :bulb: Working with Notion AI Property
+#### :bulb: Working with Notion AI Property
 - [Notion AI Property](https://www.notion.so/ja-jp/help/guides/5-ai-prompts-to-surface-fresh-insights-from-your-databases) allows you to add **custom autofill property** to each DB record.
 - Add column to your Notion DB and select `AI custom autofill`
   ![image](https://github.com/denkiwakame/arxiv2notion/assets/1871262/b1a6149a-cf55-41f8-9e83-4578a64530e6)
@@ -68,7 +68,6 @@ Note that you must be logged in to notion.so when you use this extension.
   <img src="https://github.com/denkiwakame/arxiv2notion/assets/1871262/8b30bd04-ffc3-4525-b684-90f8b62dda92" width="300">
 - Save an article via `arxiv2notion` ,and then the preset `AI property` will be automatically generated.
   ![image](https://github.com/denkiwakame/arxiv2notion/assets/1871262/ad698cf0-dce0-4b29-8511-47f4c796a694)
-
 
 ## :technologist: Build locally (for Developers)
 
