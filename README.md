@@ -1,5 +1,5 @@
 # arxiv2notion
-[![build](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml/badge.svg)](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml)
+[![build](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml/badge.svg)](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml) [![lint](https://github.com/denkiwakame/arxiv2notion/actions/workflows/lint.yaml/badge.svg)](https://github.com/denkiwakame/arxiv2notion/actions/workflows/lint.yaml)
 
 Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
 

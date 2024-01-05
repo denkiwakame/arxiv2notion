@@ -1,0 +1,26 @@
+name: eslint
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.17.0"
+      - uses: actions/cache@v3
+        id: npm_cache_id
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+      - name: install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+      - name: eslint
+        run: npm run lint
+      - name: prettier
+        run: npm run format:check
