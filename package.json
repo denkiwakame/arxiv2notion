@@ -11,6 +11,9 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "watch": "webpack serve --mode development",
+    "lint": "eslint src/js",
+    "format": "prettier --write src/js --check",
+    "format:check": "prettier src/js --check",
     "pack": "npm run pack:keygen && npm run pack:zip",
     "pack:zip": "crx pack -p key.pem -o packages/arxiv2scrap.crx --zip-output packages/arXiv2scrap.chrome.zip dist",
     "pack:keygen": "if [ ! -f key.pem ] ; then crx keygen ./ ; fi"
@@ -21,6 +24,7 @@
     "css-loader": "^5.2.6",
     "eslint": "^8.14.0",
     "html-webpack-plugin": "^5.3.1",
+    "prettier": "^3.1.1",
     "sass": "^1.34.1",
     "sass-loader": "^12.0.0",
     "style-loader": "^2.0.0",
