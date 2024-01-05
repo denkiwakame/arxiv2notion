@@ -1,14 +1,27 @@
 # :clipboard: arxiv2notion
 [![build](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml/badge.svg)](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml)
+
 Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
 
+![demo](doc/arxiv2notion.gif)
+
 ## ⬇️ Installation
-- download extension package from https://github.com/wangjksjtu/arxiv2notionplus/releases
+- download extension package from https://github.com/denkiwakame/arxiv2notion/releases
 - for Chrome, navigate to `chrome://extension`
   - drag and drop the extension from your file manager anywhere onto the extensions page
   - or unzip the extension and `load unpacked` in developer mode
 
 ## ⚙️ Setup
+
+### :one: Add arxiv2notion integration
+- follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
+  - navigate to [My Integrations](https://www.notion.so/my-integrations)
+  - `+ New integration`
+  - **associated workspace:** select your workspace where you save arXiv articles
+
+<img src="doc/my_integrataion.png" height="300">
+
+### :two: Configure the extension
 - right-click on the extension icon > `Options`
   - copy **integration id (not the secret token!)** (see figures below) from `https://hwww.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
@@ -20,25 +33,17 @@ arxiv2notion requests API token on-demand via integration ID when you are logged
 Note that you must be logged in to notion.so when you use this extension.
 ```
 
-|  integration id  | successful connection messages  |
-|---|---|
-| ![ref2](doc/integrataion.png) | ![image](https://user-images.githubusercontent.com/22170175/163661354-c9e7ab2c-c8e9-4fa2-9301-b46997e05d5e.png) |
-=======
-<img src="doc/integrataion.png" width="450">
-<img src="doc/option.png" width="450">
+<img src="doc/integrataion_id.png" height="300">
+<img src="doc/option.png" height="300">
 
-### :wrench: Create databases in Notion from template (recommended)
-- Clone the public template [here](https://denkiwakame.notion.site/597cdd58bded4375b1cbe073b2ed6f5d?v=63fcbfda57824b239b66e52dde841cdf) to your own notion workspace**
-- Follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
-  - navigate to [My Integrations](https://www.notion.so/my-integrations)
-  - `+ New integration`
-  - associated workspace: select your workspace where you save arXiv articles
+### :three: Create databases in Notion from template (recommended)
+- clone the public template [here](https://denkiwakame.notion.site/597cdd58bded4375b1cbe073b2ed6f5d?v=63fcbfda57824b239b66e52dde841cdf) to your own notion workspace
 - add connection to target databases via `...` > `+ Add connections` > `arxiv2notion`
 
 ![invite_integration](doc/notion.png)
 
 #### or create databases manually
-- Alternatively, you can follow the following steps to create database from scratch in notion
+- alternatively, you can follow the following steps to create database from scratch in notion
 - login to [notion.so](https://www.notion.so) by admin user
 - create databases where you save arXiv articles
   - **follow this instruction** https://www.notion.so/guides/creating-a-database , do **NOT** create a new database by `/database` !
