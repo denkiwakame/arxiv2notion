@@ -19,7 +19,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
   - `+ New integration`
   - **associated workspace:** select your workspace where you save arXiv articles
 
-<img src="doc/my_integration.png" height="300">
+<img src="doc/my_integration.png" height="200">
 
 ### :two: Configure the extension
 - right-click on the extension icon > `Options`
@@ -33,8 +33,7 @@ arxiv2notion requests API token on-demand via integration ID when you are logged
 Note that you must be logged in to notion.so when you use this extension.
 ```
 
-<img src="doc/integration_id.png" height="200">
-<img src="doc/option.png" height="200">
+<img src="doc/integration_id.png" height="200"><img src="doc/option.png" height="200">
 
 ### :three: Create databases in Notion
 #### from template (recommended)
@@ -64,13 +63,13 @@ Note that you must be logged in to notion.so when you use this extension.
 ### :bulb: Working with Notion AI Property (optional)
 - [Notion AI Property](https://www.notion.so/ja-jp/help/guides/5-ai-prompts-to-surface-fresh-insights-from-your-databases) allows you to add **custom autofill property** to each DB record.
 - Add column to your Notion DB and select `AI custom autofill`
-  ![image](https://github.com/denkiwakame/arxiv2notion/assets/1871262/b1a6149a-cf55-41f8-9e83-4578a64530e6)
 - Set any prompt you like (e.g. summarization, extracting key ideas ...)
-  <img src="https://github.com/denkiwakame/arxiv2notion/assets/1871262/8b30bd04-ffc3-4525-b684-90f8b62dda92" width="300">
+  <img src="https://github.com/denkiwakame/arxiv2notion/assets/1871262/b1a6149a-cf55-41f8-9e83-4578a64530e6" height="200"><img src="https://github.com/denkiwakame/arxiv2notion/assets/1871262/8b30bd04-ffc3-4525-b684-90f8b62dda92" height="200">
 - Save an article via `arxiv2notion` ,and then the preset `AI property` will be automatically generated.
   ![image](https://github.com/denkiwakame/arxiv2notion/assets/1871262/ad698cf0-dce0-4b29-8511-47f4c796a694)
 
 ## :technologist: Build locally (for Developers)
+- See also [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ```bash
 $ git clone https://github.com/denkiwakame/arxiv2notion.git
