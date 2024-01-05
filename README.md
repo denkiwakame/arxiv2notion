@@ -33,8 +33,8 @@ arxiv2notion requests API token on-demand via integration ID when you are logged
 Note that you must be logged in to notion.so when you use this extension.
 ```
 
-<img src="doc/integration_id.png" height="300">
-<img src="doc/option.png" height="300">
+<img src="doc/integration_id.png" height="200">
+<img src="doc/option.png" height="200">
 
 ### 3) Create databases in Notion from template (recommended)
 - clone the public template [here](https://denkiwakame.notion.site/597cdd58bded4375b1cbe073b2ed6f5d?v=63fcbfda57824b239b66e52dde841cdf) to your own notion workspace
