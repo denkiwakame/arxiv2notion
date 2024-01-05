@@ -1,46 +1,49 @@
-# arxiv2notion
-
+# :clipboard: arxiv2notion
 [![build](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml/badge.svg)](https://github.com/denkiwakame/arxiv2notion/actions/workflows/build.yaml)
+Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
 
-✨ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
+## ⬇️ Installation
+- download extension package from https://github.com/wangjksjtu/arxiv2notionplus/releases
+- for Chrome, navigate to `chrome://extension`
+  - drag and drop the extension from your file manager anywhere onto the extensions page
+  - or unzip the extension and `load unpacked` in developer mode
 
-📦 Download extensions: [Chrome](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.chrome.zip), [Safari](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.safari.zip), [Firefox](https://github.com/wangjksjtu/arxiv2notionplus/releases/download/v0.1.0/arxiv2notionplus.firefox.zip)
+## ⚙️ Setup
+- right-click on the extension icon > `Options`
+  - copy **integration id (not the secret token!)** (see figures below) from `https://hwww.notion.so/my-integrations/internal/${integration-id}`
+  - paste the `integration id` and click on `+` button.
+  - if your entered id is valid, you can see the following callback messages.
 
-![Safari demo](doc/safari_demo.gif)
+```
+In order to avoid storing Notion API key directoly onto chrome local storage,
+arxiv2notion requests API token on-demand via integration ID when you are logged in.
+Note that you must be logged in to notion.so when you use this extension.
+```
 
-<details>
-<summary>Chrome demo</summary>
-<img src="doc/chrome_demo.gif"/>
-</details>
+|  integration id  | successful connection messages  |
+|---|---|
+| ![ref2](doc/integrataion.png) | ![image](https://user-images.githubusercontent.com/22170175/163661354-c9e7ab2c-c8e9-4fa2-9301-b46997e05d5e.png) |
+=======
+<img src="doc/integrataion.png" width="450">
+<img src="doc/option.png" width="450">
 
-<details>
-<summary>Firefox demo</summary>
-<img src="doc/firefox_demo.gif"/>
-</details>
-
-![image](doc/nerf_example1.png)
-![image](doc/arxiv2notionplus_db.png)
-
-## Create databases in notion
-### from template
-- **The easiest approach is to clone the public template [here](https://cheerful-alto-4ff.notion.site/b9acee8425864e1596f97bc5abc1af28?v=df28b75027154e429be566b9038e8187) to your own notion workspace**
+### :wrench: Create databases in Notion from template (recommended)
+- Clone the public template [here](https://denkiwakame.notion.site/597cdd58bded4375b1cbe073b2ed6f5d?v=63fcbfda57824b239b66e52dde841cdf) to your own notion workspace**
 - Follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
   - navigate to [My Integrations](https://www.notion.so/my-integrations)
   - `+ New integration`
   - associated workspace: select your workspace where you save arXiv articles
-- Invite the integration to target databases via `Share` -> `Invite`
+- add connection to target databases via `...` > `+ Add connections` > `arxiv2notion`
+
 ![invite_integration](doc/notion.png)
 
-### manually
+#### or create databases manually
 - Alternatively, you can follow the following steps to create database from scratch in notion
-<details>
-<summary>Click here to expand!</summary>
-
-- Login to [notion.so](https://www.notion.so) by admin user
-- Create databases where you save arXiv articles
-  - **Follow this instruction** https://www.notion.so/guides/creating-a-database , do **NOT** create a new database by `/database` !
-  - **Add properties listed below.** `Title` `URL` `Publisher` `Authors` `Abstract`
-  - Note that you should create *extactly the same properties with listed names.*
+- login to [notion.so](https://www.notion.so) by admin user
+- create databases where you save arXiv articles
+  - **follow this instruction** https://www.notion.so/guides/creating-a-database , do **NOT** create a new database by `/database` !
+  - **add properties listed below.**
+  - note that you should create **extactly the same properties with listed names.**
 
 |property|type|
 |-----|-----|
@@ -52,52 +55,20 @@
 |Comment|Text|
 |Publisher|Select|
 
-</details>
+### :bulb: Working with Notion AI Property
+- [Notion AI Property](https://www.notion.so/ja-jp/help/guides/5-ai-prompts-to-surface-fresh-insights-from-your-databases) allows you to add **custom autofill property** to each DB record.
+- Add column to your Notion DB and select `AI custom autofill`
+  ![image](https://github.com/denkiwakame/arxiv2notion/assets/1871262/b1a6149a-cf55-41f8-9e83-4578a64530e6)
+- Set any prompt you like (e.g. summarization, extracting key ideas ...)
+  <img src="https://github.com/denkiwakame/arxiv2notion/assets/1871262/8b30bd04-ffc3-4525-b684-90f8b62dda92" width="300">
+- Save an article via `arxiv2notion` ,and then the preset `AI property` will be automatically generated.
+  ![image](https://github.com/denkiwakame/arxiv2notion/assets/1871262/ad698cf0-dce0-4b29-8511-47f4c796a694)
 
-## Installation
-- Download extension package from https://github.com/wangjksjtu/arxiv2notionplus/releases
-- (**Chrome**) Open Chrome then enter `chrome://extensions` in the URL bar
-  - drag and drop the extension from your file manager anywhere onto the extensions page
-  - or unzip the extension and `load unpacked` in developer mode
-- (**Safari**)
-  - Enable develop mode in safari: `Safari` > `Preferences` > `Advanced` > check "Show Develop menu in menu bar"
-  - Allow unsigned extensions: `Menu bar` > `Develop` > check "Allow Unsigned Extensions"
-  - Unzip the extension `arxiv2notionplus.safari.zip` and click `arxiv2notion` application
-  - Enable the extension from the extensions list (`Safari` > `Preferences` > `Extensions`)
-- (**Firefox**) Open Firefox then enter `about:debugging` in the URL bar
-  - Click `This Firefox`
-  - Click `Load Temporary Add-on`
-  - Unzip the extension `arxiv2notionplus.firefox.zip`
-  - Click `arxiv2notionplus.chrome.crx` in the unzipped folder
 
-## Setup
-- (**Chrome**) Right-click on the extension icon > `Options`
-  - Copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
-  - Paste the `integration id` and click on `+` button.
-- (**Safari**) Right-click on the extension icon > `Manage Extension`
-  - Click `Always Allow on Every Website` (or allow always allow extension for `arxiv.org`) - you will see some warnings on the icon if this step is not conducted; you can also grant the permission there ;)
-  - Click `preferences` to enter a new page and copy **integration id (not the secret token!)**
-  - Paste the `integration id` and click on `+` button.
-- (**Firefox**) Right-click on the extension icon > `Manage Extension`
-  - Go to `preferences` tab and copy **integration id (not the secret token!)**
-  - Paste the `integration id` and click on `+` button.
-
-**If your entered id is valid, you can see the following callback messages.**
-
-```
-In order to avoid storing Notion API key directoly onto chrome local storage,
-arxiv2notion requests API token on-demand via integration ID when you are logged in.
-Note that you must be logged in to notion.so when you use this extension.
-```
-
-|  integration id  | successful connection messages  |
-|---|---|
-| ![ref2](doc/integrataion.png) | ![image](https://user-images.githubusercontent.com/22170175/163661354-c9e7ab2c-c8e9-4fa2-9301-b46997e05d5e.png) |
-
-## Build locally (for Developers)
+## :technologist: Build locally (for Developers)
 
 ```bash
-$ git clone https://github.com/wangjksjtu/arxiv2notionplus.git
+$ git clone https://github.com/denkiwakame/arxiv2notion.git
 $ npm install
 $ npm run build
 $ npm run watch # debug locally
