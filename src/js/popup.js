@@ -98,7 +98,6 @@ class UI {
     document.getElementById('js-published').value = published;
     document.getElementById('js-comment').value = comment;
     authors.forEach((author) => {
-      console.log(author);
       const template = `<span class="uk-badge uk-margin-small-right uk-margin-small-top">{{ text }}</span>`;
       const rendered = Mustache.render(template, { text: author });
       document

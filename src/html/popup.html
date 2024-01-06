@@ -3,7 +3,26 @@
   <head></head>
   <body>
     <div class="uk-container">
-      <div class="uk-margin uk-margin-top">
+      <div class="uk-margin-top">
+        <button
+          id="js-save"
+          class="uk-icon-button uk-icon-large uk-align-center uk-margin-small"
+          uk-icon="bookmark"
+        />
+      </div>
+      <div class="uk-margin-bottom">
+        <label class="uk-form-label" for="form-stacked-text">database</label>
+        <select class="uk-select" id="js-select-database"></select>
+      </div>
+      <div class="uk-margin">
+        <progress
+          class="uk-progress uk-width-1-1 uk-margin"
+          id="js-progressbar"
+          value="0"
+          max="100"
+        ></progress>
+      </div>
+      <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text">title</label>
         <textarea
           id="js-title"
@@ -22,15 +41,6 @@
         ></textarea>
       </div>
       <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-text">published date</label>
-        <input
-          id="js-published"
-          class="uk-input"
-          type="text"
-          placeholder="published date"
-        ></input>
-      </div>
-      <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text">comment</label>
         <textarea
           id="js-comment"
@@ -40,20 +50,16 @@
         ></textarea>
       </div>
       <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-text">database</label>
-        <select class="uk-select" id="js-select-database"></select>
+        <label class="uk-form-label" for="form-stacked-text">published date</label>
+        <input
+          id="js-published"
+          class="uk-input"
+          type="text"
+          placeholder="published"
+        ></input>
+      </div>
+      <div class="uk-margin">
         <div id="js-chip-container"></div>
-        <progress
-          class="uk-progress uk-width-1-1 uk-margin"
-          id="js-progressbar"
-          value="0"
-          max="100"
-        ></progress>
-        <button
-          id="js-save"
-          class="uk-icon-button uk-icon-large uk-align-center uk-margin-bottom"
-          uk-icon="heart"
-        />
       </div>
       <div class="uk-margin">
         <div id="js-message-container"></div>
