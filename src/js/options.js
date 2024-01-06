@@ -1,3 +1,6 @@
+// MIT License
+// Copyright (c) 2022 denkiwakame <denkivvakame@gmail.com>
+
 import '../scss/theme.scss';
 import UIKit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';

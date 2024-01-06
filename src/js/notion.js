@@ -1,3 +1,6 @@
+// MIT License
+// Copyright (c) 2022 denkiwakame <denkivvakame@gmail.com>
+
 export default class Notion {
   constructor() {
     this.token = null;

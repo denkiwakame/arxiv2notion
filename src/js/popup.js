@@ -1,3 +1,6 @@
+// MIT License
+// Copyright (c) 2022 denkiwakame <denkivvakame@gmail.com>
+
 import '../scss/theme.scss';
 import UIKit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
@@ -95,7 +98,7 @@ class UI {
   setFormContents(paperTitle, abst, published, comment, authors) {
     document.getElementById('js-title').value = paperTitle;
     document.getElementById('js-abst').value = abst;
-    document.getElementById('js-published').value = published;
+    //     document.getElementById('js-published').value = published;
     document.getElementById('js-comment').value = comment;
     authors.forEach((author) => {
       const template = `<span class="uk-badge uk-margin-small-right uk-margin-small-top">{{ text }}</span>`;
