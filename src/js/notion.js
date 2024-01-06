@@ -56,12 +56,8 @@ export default class Notion {
     const published = data.published;
     const comment = data.comment;
     const authors = authorsFormatted.split(', ');
-
-    let author_multi_select = [];
-    authors.forEach(function (v) {
-      let obj = {};
-      obj['name'] = v;
-      author_multi_select.push(obj);
+    const authorsMultiSelect = authors.map((author) => {
+      return { name: author };
     });
 
     try {
@@ -109,7 +105,7 @@ export default class Notion {
         Authors: {
           id: 'authors',
           type: 'multi_select',
-          multi_select: author_multi_select,
+          multi_select: authorsMultiSelect,
         },
         Published: {
           id: 'published',
