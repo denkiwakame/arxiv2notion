@@ -16,7 +16,7 @@
     "page": "options.html",
     "open_in_tab": false
   },
-  "permissions": ["tabs", "bookmarks", "storage"],
+  "permissions": ["tabs", "storage"],
   "host_permissions": [
     "<all_urls>",
     "*://api.notion.com/*",
