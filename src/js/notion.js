@@ -116,7 +116,7 @@ export default class Notion {
           type: 'date',
           date: { start: published, end: null },
         },
-        Comment: {
+        Comments: {
           id: 'comment',
           type: 'url',
           url: comment,
@@ -162,7 +162,7 @@ export default class Notion {
       });
       console.log(data);
     } catch (err) {
-      console.error('[ERR] ' + err);
+      console.error(err);
       throw err;
     }
   }

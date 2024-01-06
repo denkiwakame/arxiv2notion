@@ -17,8 +17,11 @@ class UI {
     this.setupSaveButton();
     this.client = new NotionClient();
     this.connectionTest();
-    this.getCurrentTabUrl();
-    if (DEBUG_MODE) this.getPaperInfo(TEST_URL);
+    if (DEBUG_MODE) {
+      this.data = this.getPaperInfo(TEST_URL);
+    } else {
+      this.getCurrentTabUrl();
+    }
   }
 
   getCurrentTabUrl() {
