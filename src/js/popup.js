@@ -7,7 +7,6 @@ import thenChrome from 'then-chrome';
 
 UIKit.use(Icons);
 
-const DEBUG_MODE = true;
 const TEST_URL = 'https://arxiv.org/abs/2308.04079';
 const ARXIV_API = 'http://export.arxiv.org/api/query/search_query';
 
@@ -17,18 +16,16 @@ class UI {
     this.setupSaveButton();
     this.client = new NotionClient();
     this.connectionTest();
-    if (DEBUG_MODE) {
-      this.data = this.getPaperInfo(TEST_URL);
-    } else {
-      this.getCurrentTabUrl();
-    }
+    this.getCurrentTabUrl();
   }
 
   getCurrentTabUrl() {
     document.addEventListener('DOMContentLoaded', () => {
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const url = tabs[0].url;
-        this.data = this.getPaperInfo(url);
+        this.data = this.isDebugUrl(url)
+          ? this.getPaperInfo(TEST_URL)
+          : this.getPaperInfo(url);
       });
     });
   }
@@ -76,6 +73,9 @@ class UI {
         clearInterval(this._animate);
       }
     }, 200);
+  }
+  isDebugUrl(url) {
+    return url && url.indexOf('chrome-extension://') === 0;
   }
   isArxivUrl(url) {
     return url && url.indexOf('https://arxiv.org') === 0;
