@@ -15,7 +15,7 @@
     "format": "prettier --write src/js --check",
     "format:check": "prettier src/js --check",
     "pack": "npm run pack:keygen && npm run pack:zip",
-    "pack:zip": "crx pack -p key.pem -o packages/arxiv2scrap.crx --zip-output packages/arXiv2scrap.chrome.zip dist",
+    "pack:zip": "crx pack -p key.pem -o packages/arxiv2notion.crx --zip-output packages/arXiv2scrap.chrome.zip dist",
     "pack:keygen": "if [ ! -f key.pem ] ; then crx keygen ./ ; fi"
   },
   "devDependencies": {
