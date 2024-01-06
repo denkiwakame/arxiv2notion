@@ -132,8 +132,7 @@ class UI {
       }
     );
     const published = entry.querySelector('published').textContent;
-    const comment_query = entry.querySelector('comment');
-    const comment = !comment_query ? 'none' : comment_query.textContent;
+    const comment = entry.querySelector('comment')?.textContent ?? 'none';
     this.setFormContents(paperTitle, abst, comment, authors);
     return {
       title: paperTitle,
