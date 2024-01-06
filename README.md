@@ -34,7 +34,7 @@ arxiv2notion requests API token on-demand via integration ID when you are logged
 Note that you must be logged in to notion.so when you use this extension.
 ```
 
-<img src="doc/integration_id.png" height="250"><img src="doc/option.png" height="250">
+<img src="doc/integration_id.png" height="280"><img src="doc/option.png" height="280">
 
 ### :three: Create databases in Notion
 #### from template (recommended)
@@ -45,7 +45,7 @@ Note that you must be logged in to notion.so when you use this extension.
 
 - you can switch multiple DBs by adding the connection to these pages, respectively.
 
-<img src="doc/multiple_db.png" height="200">
+![multiple_db](doc/multiple_db.png)
 
 
 #### or manually
