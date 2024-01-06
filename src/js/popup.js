@@ -157,4 +157,4 @@ class UI {
   }
 }
 
-UI();
+new UI();

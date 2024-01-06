@@ -96,4 +96,4 @@ class TokenManager {
   }
 }
 
-TokenManager();
+new TokenManager();
