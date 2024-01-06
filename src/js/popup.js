@@ -7,8 +7,8 @@ import thenChrome from 'then-chrome';
 
 UIKit.use(Icons);
 
-// const TEST_URL = "https://arxiv.org/abs/2112.10703";
-// const TEST_URL = "https://arxiv.org/abs/1810.00826";
+const DEBUG_MODE = true;
+const TEST_URL = 'https://arxiv.org/abs/2308.04079';
 const ARXIV_API = 'http://export.arxiv.org/api/query/search_query';
 
 class UI {
@@ -18,7 +18,7 @@ class UI {
     this.client = new NotionClient();
     this.connectionTest();
     this.getCurrentTabUrl();
-    //     this.getPaperInfo(TEST_URL);
+    if (DEBUG_MODE) this.getPaperInfo(TEST_URL);
   }
 
   getCurrentTabUrl() {
