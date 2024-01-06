@@ -95,7 +95,7 @@ class UI {
     return paperId;
   }
 
-  setFormContents(paperTitle, abst, published, comment, authors) {
+  setFormContents(paperTitle, abst, comment, authors) {
     document.getElementById('js-title').value = paperTitle;
     document.getElementById('js-abst').value = abst;
     //     document.getElementById('js-published').value = published;
@@ -134,7 +134,7 @@ class UI {
     const published = entry.querySelector('published').textContent;
     const comment_query = entry.querySelector('comment');
     const comment = !comment_query ? 'none' : comment_query.textContent;
-    this.setFormContents(paperTitle, abst, published, comment, authors);
+    this.setFormContents(paperTitle, abst, comment, authors);
     return {
       title: paperTitle,
       abst: abst,
