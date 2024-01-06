@@ -1,15 +1,15 @@
-import "../scss/theme.scss";
-import UIKit from "uikit";
-import Icons from "uikit/dist/js/uikit-icons";
-import Mustache from "mustache";
-import NotionClient from "./notion.js";
-import thenChrome from "then-chrome";
+import '../scss/theme.scss';
+import UIKit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+import Mustache from 'mustache';
+import NotionClient from './notion.js';
+import thenChrome from 'then-chrome';
 
 UIKit.use(Icons);
 
 // const TEST_URL = "https://arxiv.org/abs/2112.10703";
 // const TEST_URL = "https://arxiv.org/abs/1810.00826";
-const ARXIV_API = "http://export.arxiv.org/api/query/search_query";
+const ARXIV_API = 'http://export.arxiv.org/api/query/search_query';
 
 class UI {
   constructor() {
@@ -22,7 +22,7 @@ class UI {
   }
 
   getCurrentTabUrl() {
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('DOMContentLoaded', () => {
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const url = tabs[0].url;
         this.data = this.getPaperInfo(url);
@@ -31,12 +31,12 @@ class UI {
   }
 
   async connectionTest() {
-    chrome.storage.local.get("botId", async (d) => {
+    chrome.storage.local.get('botId', async (d) => {
       if (!this.client.token) {
         const botId = d.botId;
         const data = await this.client.requestToken(botId);
-        if (data.name == "UnauthorizedError") {
-          this.renderMessage("danger", "You are not logged in notion.so.");
+        if (data.name == 'UnauthorizedError') {
+          this.renderMessage('danger', 'You are not logged in notion.so.');
         } else {
           this.client.token = data.token;
         }
@@ -46,22 +46,22 @@ class UI {
   }
 
   setupSaveButton() {
-    document.getElementById("js-save").addEventListener("click", async () => {
+    document.getElementById('js-save').addEventListener('click', async () => {
       this.showProgressBar();
       const data = await this.client.createPage(this.data);
       if (data.status && data.status == 400) {
-        this.renderMessage("danger", `[${data.code}] ${data.message}`);
+        this.renderMessage('danger', `[${data.code}] ${data.message}`);
         return;
       } else {
         thenChrome.tabs.create({
-          url: `https://notion.so/${data.id.replaceAll("-", "")}`,
+          url: `https://notion.so/${data.id.replaceAll('-', '')}`,
         });
       }
     });
   }
 
   setupProgressBar() {
-    this.progressBar = document.getElementById("js-progressbar");
+    this.progressBar = document.getElementById('js-progressbar');
   }
 
   showProgressBar() {
@@ -75,10 +75,10 @@ class UI {
     }, 200);
   }
   isArxivUrl(url) {
-    return url && url.indexOf("https://arxiv.org") === 0;
+    return url && url.indexOf('https://arxiv.org') === 0;
   }
   isPDF(url) {
-    return url && url.split(".").pop() === "pdf";
+    return url && url.split('.').pop() === 'pdf';
   }
   async getPaperInfo(url) {
     if (this.isArxivUrl(url)) return this.getArXivInfo(url);
@@ -90,17 +90,17 @@ class UI {
   }
 
   setFormContents(paperTitle, abst, published, comment, authors) {
-    document.getElementById("js-title").value = paperTitle;
-    document.getElementById("js-abst").value = abst;
-    document.getElementById("js-published").value = published;
-    document.getElementById("js-comment").value = comment;
+    document.getElementById('js-title').value = paperTitle;
+    document.getElementById('js-abst').value = abst;
+    document.getElementById('js-published').value = published;
+    document.getElementById('js-comment').value = comment;
     authors.forEach((author) => {
       console.log(author);
       const template = `<span class="uk-badge uk-margin-small-right uk-margin-small-top">{{ text }}</span>`;
       const rendered = Mustache.render(template, { text: author });
       document
-        .getElementById("js-chip-container")
-        .insertAdjacentHTML("beforeend", rendered);
+        .getElementById('js-chip-container')
+        .insertAdjacentHTML('beforeend', rendered);
     });
   }
 
@@ -108,27 +108,27 @@ class UI {
     this.showProgressBar();
     const paperId = this.parseArXivId(url);
 
-    const res = await fetch(ARXIV_API + "?id_list=" + paperId.toString());
+    const res = await fetch(ARXIV_API + '?id_list=' + paperId.toString());
     if (res.status != 200) {
-      console.log("[ERR] arXiv API request failed");
+      console.log('[ERR] arXiv API request failed');
       return;
     }
     const data = await res.text(); // TODO: error handling
     console.log(res.status);
-    const xmlData = new window.DOMParser().parseFromString(data, "text/xml");
+    const xmlData = new window.DOMParser().parseFromString(data, 'text/xml');
     console.log(xmlData);
 
-    const entry = xmlData.querySelector("entry");
-    const paperTitle = entry.querySelector("title").textContent;
-    const abst = entry.querySelector("summary").textContent;
-    const authors = Array.from(entry.querySelectorAll("author")).map(
+    const entry = xmlData.querySelector('entry');
+    const paperTitle = entry.querySelector('title').textContent;
+    const abst = entry.querySelector('summary').textContent;
+    const authors = Array.from(entry.querySelectorAll('author')).map(
       (author) => {
         return author.textContent.trim();
-      },
+      }
     );
-    const published = entry.querySelector("published").textContent;
-    const comment_query = entry.querySelector("comment");
-    const comment = !comment_query ? "none" : comment_query.textContent;
+    const published = entry.querySelector('published').textContent;
+    const comment_query = entry.querySelector('comment');
+    const comment = !comment_query ? 'none' : comment_query.textContent;
     this.setFormContents(paperTitle, abst, published, comment, authors);
     return {
       title: paperTitle,
@@ -148,11 +148,11 @@ class UI {
       message: message,
     });
     if (overwrite) {
-      document.getElementById("js-message-container").innerHTML = rendered;
+      document.getElementById('js-message-container').innerHTML = rendered;
     } else {
       document
-        .getElementById("js-message-container")
-        .insertAdjacentHTML("beforeend", rendered);
+        .getElementById('js-message-container')
+        .insertAdjacentHTML('beforeend', rendered);
     }
   }
 }
