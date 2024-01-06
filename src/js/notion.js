@@ -41,6 +41,7 @@ export default class Notion {
       const data = await res.json();
       console.log(data);
     } catch (err) {
+      console.error(err);
       throw err;
     }
   }
@@ -136,6 +137,7 @@ export default class Notion {
       console.log(data);
       return data;
     } catch (err) {
+      console.error(err);
       throw err;
     }
   }
