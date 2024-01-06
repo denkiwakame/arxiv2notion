@@ -124,7 +124,7 @@ class UI {
     const authors = Array.from(entry.querySelectorAll("author")).map(
       (author) => {
         return author.textContent.trim();
-      }
+      },
     );
     const published = entry.querySelector("published").textContent;
     const comment_query = entry.querySelector("comment");
