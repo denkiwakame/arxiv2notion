@@ -62,7 +62,7 @@ Note that you must be logged in to notion.so when you use this extension.
 |Authors|Multi-Select|
 |Abstract|Text|
 |Published|Date|
-|Comment|Text|
+|Comments|URL|
 |Publisher|Select|
 
 ### :bulb: Working with Notion AI Property (optional)
