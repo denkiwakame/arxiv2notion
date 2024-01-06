@@ -32,16 +32,19 @@ We will then take care of the issue as soon as possible.
 
 ## I Want To Contribute
 ### How to Develop arxiv2notion
-#### How to debug your extension
-- change this line to the following https://github.com/denkiwakame/arxiv2notion/blob/main/src/js/popup.js#L19
-  - this will query arxiv information not from the current tab data but from the hard-coded URL.
 
-```diff
-- this.getCurrentTabUrl();
-+ this.getPaperInfo(TEST_URL);
+#### How to build your extension locally
+
+```bash
+$ git clone https://github.com/denkiwakame/arxiv2notion.md
+$ npm install
+$ npm run build
+$ npm run watch # debug locally
+$ npm run pack  # pack to .zip extension
 ```
 
-- `$ npm install & npm run build` build the extension locally
+#### How to debug your extension
+- `$ npm run build` build the extension locally
 - navigate to `chrome://extension`
   - turn on `developer mode`
   - select `load unpacked` and open `arxiv2notion/dist`
@@ -69,19 +72,6 @@ We will then take care of the issue as soon as possible.
 #### Post to notion.so
 - Add property to https://github.com/denkiwakame/arxiv2notion/blob/main/src/js/notion.js#L62-L118
 - You may need to follow the Notion API date format.　https://developers.notion.com/reference/page#date-property-values
-- I haven't tested though, maybe like this ?
-
-```js
-        Published: {
-          id: "published",
-          type: "date",
-          date: { start: "2020-12-08T12:00:00Z", end: null },
-        },
-```
-Oh, wait, when I finished up writing this, I realized that customizing this extension is somewhat troublesome. :skull_and_crossbones:
-I designed the default database scheme simplest so that it would meet the demand for diversified potential users.  I will be considering to update this extension so that the user can select properties on-demand without coding.
-If you don't mind, could you please give me some feedback on the desired properties (database scheme) or UIs to save on notion.so ?
-
 
 ### Suggesting Enhancements
 
