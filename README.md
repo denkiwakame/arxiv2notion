@@ -40,7 +40,12 @@ Note that you must be logged in to notion.so when you use this extension.
 - clone the public template [here](https://denkiwakame.notion.site/597cdd58bded4375b1cbe073b2ed6f5d?v=63fcbfda57824b239b66e52dde841cdf) to your own notion workspace
 - add connection to target databases via `...` > `+ Add connections` > `arxiv2notion`
 
-![invite_integration](doc/notion.png)
+![invite_integration](doc/connection.png)
+
+- you can switch multiple DBs by adding the connection to these pages, respectively.
+
+<imv src="doc/multiple_db.png" height="200">
+
 
 #### or manually
 - alternatively, you can follow the following steps to create database from scratch in notion
