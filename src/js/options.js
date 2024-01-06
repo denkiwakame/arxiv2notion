@@ -46,7 +46,7 @@ class TokenManager {
   toBotId(iid) {
     return `${iid.slice(0, 8)}-${iid.slice(8, 12)}-${iid.slice(
       12,
-      16,
+      16
     )}-${iid.slice(16, 20)}-${iid.slice(20, iid.length)}`;
   }
   async saveIntegrationId() {
@@ -96,4 +96,4 @@ class TokenManager {
   }
 }
 
-const tokenMan = new TokenManager();
+TokenManager();
