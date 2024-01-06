@@ -4,6 +4,7 @@
 Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
 
 ![demo](doc/arxiv2notion.gif)
+![notion](doc/nerf_example2.png)
 
 ## ⬇️ Installation
 - download extension package from https://github.com/denkiwakame/arxiv2notion/releases
