@@ -66,6 +66,16 @@ Note that you must be logged in to notion.so when you use this extension.
 |Comments|URL|
 |Publisher|Select|
 
+#### migration from v0.1.x → v1.0.0
+- We changed `Authors` type and added `Published` `Comments` property from [v1.0.0](https://github.com/denkiwakame/arxiv2notion/releases/tag/v1.0.0).
+- Change your existing database properties as follows, you can easily integrate new features to your existing Notion database!
+
+|property|type(^v0.1.x)|type(v1.0.0+) |
+|-----|-----|-----|
+|Authors|Text| **Multi-Select**|
+|**Published**|--|**Date**|
+|**Comments**|--|**URL**|
+  
 ### :bulb: Working with Notion AI Property (optional)
 - [Notion AI Property](https://www.notion.so/ja-jp/help/guides/5-ai-prompts-to-surface-fresh-insights-from-your-databases) allows you to add **custom autofill property** to each DB record.
 - Add column to your Notion DB and select `AI custom autofill`
