@@ -14,10 +14,11 @@ module.exports = {
   },
   devServer: {
     hot: true,
-    watchContentBase: true,
     liveReload: true,
     port: 8080,
-    contentBase: path.join(__dirname, "dist"),
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

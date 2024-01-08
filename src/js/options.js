@@ -1,39 +1,42 @@
-import "../scss/theme.scss";
-import UIKit from "uikit";
-import Icons from "uikit/dist/js/uikit-icons";
-import Mustache from "mustache";
-import NotionClient from "./notion.js";
+// MIT License
+// Copyright (c) 2022 denkiwakame <denkivvakame@gmail.com>
+
+import '../scss/theme.scss';
+import UIKit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+import Mustache from 'mustache';
+import NotionClient from './notion.js';
 
 UIKit.use(Icons);
 
 class TokenManager {
   constructor() {
-    this.storageKey = "botId";
+    this.storageKey = 'botId';
     this.setupInput();
     this.setupSaveButton();
     this.client = new NotionClient();
   }
   toggleVisible() {
-    if (this.input.type == "password") {
-      this.input.type = "text";
-      this.visibleButton.setAttribute("uk-icon", "unlock");
+    if (this.input.type == 'password') {
+      this.input.type = 'text';
+      this.visibleButton.setAttribute('uk-icon', 'unlock');
     } else {
-      this.input.type = "password";
-      this.visibleButton.setAttribute("uk-icon", "lock");
+      this.input.type = 'password';
+      this.visibleButton.setAttribute('uk-icon', 'lock');
     }
   }
   setupSaveButton() {
-    this.saveButton = document.getElementById("js-save-btn");
-    this.saveButton.addEventListener("click", () => {
+    this.saveButton = document.getElementById('js-save-btn');
+    this.saveButton.addEventListener('click', () => {
       this.saveIntegrationId();
     });
-    this.visibleButton = document.getElementById("js-visible-btn");
-    this.visibleButton.addEventListener("click", () => {
+    this.visibleButton = document.getElementById('js-visible-btn');
+    this.visibleButton.addEventListener('click', () => {
       this.toggleVisible();
     });
   }
   setupInput() {
-    this.input = document.getElementById("js-token-input");
+    this.input = document.getElementById('js-token-input');
     if (!chrome.storage) return;
     chrome.storage.local.get(this.storageKey, (d) => {
       if (!d) return;
@@ -41,7 +44,7 @@ class TokenManager {
     });
   }
   toIid(botId) {
-    return botId.replaceAll("-", "");
+    return botId.replaceAll('-', '');
   }
   toBotId(iid) {
     return `${iid.slice(0, 8)}-${iid.slice(8, 12)}-${iid.slice(
@@ -52,8 +55,8 @@ class TokenManager {
   async saveIntegrationId() {
     const iid = this.input.value;
     if (!iid.trim().length || iid.length != 32) {
-      console.log("invalid!");
-      this.renderMessage("danger", "Invalid integration ID (32 char).");
+      console.log('invalid!');
+      this.renderMessage('danger', 'Invalid integration ID (32 char).');
       return;
     }
     const botId = this.toBotId(iid);
@@ -62,8 +65,8 @@ class TokenManager {
       botId: botId,
     });
     chrome.storage.local.get(this.storageKey, (d) => {
-      console.log("chrome storage", d);
-      this.renderMessage("success", "integration ID is successfully saved.");
+      console.log('chrome storage', d);
+      this.renderMessage('success', 'integration ID is successfully saved.');
       this.connectionTest();
     });
   }
@@ -72,10 +75,10 @@ class TokenManager {
       const botId = d.botId;
       const data = this.client.requestToken(botId);
       console.log(data);
-      if (data.name == "UnauthorizedError") {
-        this.renderMessage("danger", "You are not logged in notion.so.");
+      if (data.name == 'UnauthorizedError') {
+        this.renderMessage('danger', 'You are not logged in notion.so.');
       } else {
-        this.renderMessage("success", "Successfully connected with notion.so.");
+        this.renderMessage('success', 'Successfully connected with notion.so.');
       }
     });
   }
@@ -87,13 +90,13 @@ class TokenManager {
       message: message,
     });
     if (overwrite) {
-      document.getElementById("js-message-container").innerHTML = rendered;
+      document.getElementById('js-message-container').innerHTML = rendered;
     } else {
       document
-        .getElementById("js-message-container")
-        .insertAdjacentHTML("beforeend", rendered);
+        .getElementById('js-message-container')
+        .insertAdjacentHTML('beforeend', rendered);
     }
   }
 }
 
-const tokenMan = new TokenManager();
+new TokenManager();
