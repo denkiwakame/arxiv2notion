@@ -15,7 +15,7 @@ https://github.com/denkiwakame/arxiv2notion/releases/latest
 
 ## ⚙️ Setup
 
-### :one: Add arxiv2notion integration
+### 1. Add arxiv2notion integration
 - follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
   - navigate to [My Integrations](https://www.notion.so/my-integrations)
   - `+ New integration`
@@ -23,7 +23,7 @@ https://github.com/denkiwakame/arxiv2notion/releases/latest
 
 <img src="doc/my_integration.png" height="200">
 
-### :two: Configure the extension
+### 2. Configure the extension
 - right-click on the extension icon > `Options`
   - copy **integration id (not the secret token!)** (see figures below) from `https://hwww.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
@@ -37,7 +37,7 @@ Note that you must be logged in to notion.so when you use this extension.
 
 <img src="doc/integration_id.png" height="300"><img src="doc/option.png" height="300">
 
-### :three: Create databases in Notion
+### 3. Create databases in Notion
 #### from template (recommended)
 - clone the public template [here](https://denkiwakame.notion.site/597cdd58bded4375b1cbe073b2ed6f5d?v=63fcbfda57824b239b66e52dde841cdf) to your own notion workspace
 - add connection to target databases via `...` > `+ Add connections` > `arxiv2notion`
@@ -97,7 +97,7 @@ $ npm run pack  # packaging to zip
 ```
 
 ## Contributors
-- Maintainers: @denkiwakame, @wangjksjtu
+- Maintainers: [@denkiwakame](https://github.com/denkiwakame), [@wangjksjtu](https://github.com/wangjksjtu)
 <a href="https://github.com/denkiwakame/arxiv2notion/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=denkiwakame/arxiv2notion" />
 </a>
