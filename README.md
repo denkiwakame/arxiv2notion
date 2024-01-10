@@ -76,7 +76,12 @@ Note that you must be logged in to notion.so when you use this extension.
 |Authors|Text| **Multi-Select**|
 |**Published**|--|**Date**|
 |**Comments**|--|**URL**|
-  
+
+### :bulb: Working with Notion Formula (optional)
+- [Notion Formula](https://www.notion.so/help/formulas) allows you to add **custom autofill property** defined by formula.
+- For instance, `replace(URL, "arxiv", "ar5iv")` formula adds an [ar5iv link](https://ar5iv.labs.arxiv.org/) column by substituting "arxiv.org" with "ar5iv.org" 🚀
+<img src="https://github.com/denkiwakame/arxiv2notion/assets/1871262/687c0e6f-0f63-4f0c-81ce-0b2468c90b0e" height="200">
+
 ### :bulb: Working with Notion AI Property (optional)
 - [Notion AI Property](https://www.notion.so/ja-jp/help/guides/5-ai-prompts-to-surface-fresh-insights-from-your-databases) allows you to add **custom autofill property** to each DB record.
 - Add column to your Notion DB and select `AI custom autofill`
