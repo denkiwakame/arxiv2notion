@@ -20,6 +20,7 @@ class UI {
     this.client = new NotionClient();
     this.connectionTest();
     this.getCurrentTabUrl();
+    this.setupMsgHandler();
   }
 
   getCurrentTabUrl() {
@@ -60,6 +61,13 @@ class UI {
           url: `https://notion.so/${data.id.replaceAll('-', '')}`,
         });
       }
+    });
+  }
+
+  setupMsgHandler() {
+    document.addEventListener('msg', (evt) => {
+      console.error(evt);
+      this.renderMessage(evt.detail.type, evt.detail.msg);
     });
   }
 
@@ -115,7 +123,7 @@ class UI {
 
     const res = await fetch(ARXIV_API + '?id_list=' + paperId.toString());
     if (res.status != 200) {
-      console.log('[ERR] arXiv API request failed');
+      console.error('arXiv API request failed');
       return;
     }
     const data = await res.text(); // TODO: error handling
@@ -124,6 +132,7 @@ class UI {
     console.log(xmlData);
 
     const entry = xmlData.querySelector('entry');
+    const id = entry.querySelector('id')?.textContent.match(/\d+\.\d+/)?.[0];
     const paperTitle = entry.querySelector('title').textContent;
     const abst = entry.querySelector('summary').textContent;
     const authors = Array.from(entry.querySelectorAll('author')).map(
@@ -135,6 +144,7 @@ class UI {
     const comment = entry.querySelector('comment')?.textContent ?? 'none';
     this.setFormContents(paperTitle, abst, comment, authors);
     return {
+      id: id,
       title: paperTitle,
       abst: abst,
       authors: authors,
