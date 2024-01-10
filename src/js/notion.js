@@ -1,5 +1,5 @@
 // MIT License
-// Copyright (c) 2022 denkiwakame <denkivvakame@gmail.com>
+// Copyright (c) 2021 denkiwakame <denkivvakame@gmail.com>
 
 export default class Notion {
   constructor() {
@@ -10,7 +10,7 @@ export default class Notion {
   torkenizedHeaders() {
     return {
       'Content-Type': 'application/json',
-      'Notion-Version': '2021-05-13',
+      'Notion-Version': '2022-06-28',
       Authorization: `Bearer ${this.token}`,
     };
   }
@@ -143,23 +143,25 @@ export default class Notion {
 
   async retrieveDatabase() {
     try {
-      const url = this.apiBase + 'databases';
+      // /v1/databases is deprecated since Notion API version: 2022-06-28
+      // https://developers.notion.com/reference/get-databases
+      // https://developers.notion.com/reference/post-search
+      const url = this.apiBase + 'search';
       const headers = this.torkenizedHeaders();
-      console.log(headers);
+      const body = { filter: { value: 'database', property: 'object' } };
       const res = await fetch(url, {
-        method: 'GET',
+        method: 'POST',
         mode: 'cors',
         headers: headers,
+        body: JSON.stringify(body),
       });
       const data = await res.json();
-
       data.results.forEach((result) => {
         const option = `<option value=${result.id}>${result.title[0].text.content}</option>`;
         document
           .getElementById('js-select-database')
           .insertAdjacentHTML('beforeend', option);
       });
-      console.log(data);
     } catch (err) {
       console.error(err);
       throw err;
