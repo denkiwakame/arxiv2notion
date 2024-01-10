@@ -1,6 +1,6 @@
 {
   "name": "arxiv2notion",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "easy-to-use arXiv clipper",
   "contributors": [
     "denkiwakame<denkivvakame@gmail.com>",
