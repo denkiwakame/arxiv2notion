@@ -1,9 +1,15 @@
 # CHANGELOG
 All notable changes to this repository will be documented in this file.
 
+## [1.1.0] - 2024-01-10
+### Added
+- 🚀 **New Feature:** check duplicated entry [PR#9](https://github.com/wangjksjtu/arxiv2notionplus/issues/1)
+### Changed
+- Migration to Notion API version (2022-06-28) [PR#8](https://github.com/denkiwakame/arxiv2notion/pull/8)
+
 ## [1.0.0] - 2024-01-08
 ### Added
-- integrates [arxiv2notionplus](https://github.com/wangjksjtu/arxiv2notionplus/issues)(#4)
+- integrates [arxiv2notionplus](https://github.com/wangjksjtu/arxiv2notionplus/issues/1) [PR#6](https://github.com/denkiwakame/arxiv2notion/pull/6)
   - add publication date for easier tracking @wangjksjtu
   - add comment parser for quick access to the potential project homepage or code link (if available) @wangjksjtu
 - Refactor the above codes & fix bugs by @denkiwakame
@@ -17,7 +23,7 @@ All notable changes to this repository will be documented in this file.
 - Update UI to improve the navigation to the button @denkiwakame
 
 ### Fixed
-- #7 Migration to Manifest V3 @denkiwakame
+- Migration to Manifest V3 @denkiwakame [PR#7](https://github.com/denkiwakame/arxiv2notion/pull/7)
 
 ## [0.0.1] - 2021-06-07
 ### Added
