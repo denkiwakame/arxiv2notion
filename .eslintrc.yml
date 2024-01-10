@@ -1,4 +1,5 @@
 env:
+  es6: true
   browser: true
   webextensions: true
 extends: eslint:recommended
