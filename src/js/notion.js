@@ -49,9 +49,60 @@ export default class Notion {
     }
   }
 
+  async checkDuplicateEntry(paperId, databaseId) {
+    const entries = await this.retrieveEntry(paperId, databaseId);
+    if (entries.length != 0) {
+      document.dispatchEvent(
+        new CustomEvent('msg', {
+          detail: {
+            type: 'warning',
+            msg: 'This item is already bookmarked. Opening existing entry...',
+          },
+        })
+      );
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+    return entries;
+  }
+
+  async retrieveEntry(paperId, databaseId) {
+    const filter = {
+      property: 'URL',
+      rich_text: {
+        contains: `/${paperId}`,
+      },
+    };
+
+    try {
+      const url = this.apiBase + `databases/${databaseId}/query`;
+      const body = {
+        filter: filter,
+      };
+      const res = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: this.torkenizedHeaders(),
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      return data.results;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
+
   async createPage(_data) {
     const data = await _data;
     const databaseId = document.getElementById('js-select-database').value;
+
+    // XXX check if the entry has already been bookmarked
+    const duplicateEntries = await this.checkDuplicateEntry(
+      data.id,
+      databaseId
+    );
+    if (duplicateEntries.length != 0) return duplicateEntries[0];
+
     const title = data.title;
     const abst = data.abst;
     const paperUrl = data.url;
