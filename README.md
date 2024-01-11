@@ -8,7 +8,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 
 ## ⬇️ Installation
 ### a. Install via Chrome Store
-- arxiv2notion is now available at [Chrome Store]().
+- arxiv2notion is now available at [Chrome Store](https://chromewebstore.google.com/detail/arxiv2notion/jfgdgmjlakndggcpknmanlpgjgjbcbli) 🚀.
 
 ### b. Install Manually
 - download extension package from 
