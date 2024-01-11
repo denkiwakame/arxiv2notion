@@ -7,6 +7,10 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 ![notion](doc/nerf_example2.png)
 
 ## ⬇️ Installation
+### a. Install via Chrome Store
+- arxiv2notion is now available at [Chrome Store]().
+
+### b. Install Manually
 - download extension package from 
 https://github.com/denkiwakame/arxiv2notion/releases/latest
 - for Chrome, navigate to `chrome://extension`
@@ -29,11 +33,9 @@ https://github.com/denkiwakame/arxiv2notion/releases/latest
   - paste the `integration id` and click on `+` button.
   - if your entered id is valid, you can see the following callback messages.
 
-```
-In order to avoid storing Notion API key directoly onto chrome local storage,
-arxiv2notion requests API token on-demand via integration ID when you are logged in.
-Note that you must be logged in to notion.so when you use this extension.
-```
+> [!NOTE]
+> To enhance security, arxiv2notion retrieves the Notion API key on-demand through integration ID instead of storing it directly in Chrome local storage. **Please ensure you are logged into notion.so while using this extension.**
+
 
 <img src="doc/integration_id.png" height="300"><img src="doc/option.png" height="300">
 
@@ -53,9 +55,11 @@ Note that you must be logged in to notion.so when you use this extension.
 - alternatively, you can follow the following steps to create database from scratch in notion
 - login to [notion.so](https://www.notion.so) by admin user
 - create databases where you save arXiv articles
-  - **follow this instruction** https://www.notion.so/guides/creating-a-database , do **NOT** create a new database by `/database` !
-  - **add properties listed below.**
-  - note that you should create **extactly the same properties with listed names.**
+  - **follow this instruction** https://www.notion.so/guides/creating-a-database and **add properties listed below.**
+
+> [!CAUTION]
+> Do **NOT** create a new database by `/database` !
+> Make sure to create properties with **exactly the same names and types as those listed.**
 
 |property|type|
 |-----|-----|
@@ -67,7 +71,8 @@ Note that you must be logged in to notion.so when you use this extension.
 |Comments|URL|
 |Publisher|Select|
 
-#### migration from v0.1.x → v1.0.0
+> [!NOTE]
+> **migration from v0.1.x → v1.0.0**
 - We changed `Authors` type and added `Published` `Comments` property from [v1.0.0](https://github.com/denkiwakame/arxiv2notion/releases/tag/v1.0.0).
 - Change your existing database properties as follows, you can easily integrate new features to your existing Notion database!
 
@@ -77,12 +82,15 @@ Note that you must be logged in to notion.so when you use this extension.
 |**Published**|--|**Date**|
 |**Comments**|--|**URL**|
 
-### :bulb: Working with Notion Formula (optional)
+> [!TIP]
+> You can add extra columns of your choice alongside the default ones in your databases.
+
+#### :bulb: w/ Notion Formula (optional)
 - [Notion Formula](https://www.notion.so/help/formulas) allows you to add **custom autofill property** defined by formula.
 - For instance, `replace(URL, "arxiv", "ar5iv")` formula adds an [ar5iv link](https://ar5iv.labs.arxiv.org/) column by substituting "arxiv.org" with "ar5iv.org" 🚀
 <img src="https://github.com/denkiwakame/arxiv2notion/assets/1871262/687c0e6f-0f63-4f0c-81ce-0b2468c90b0e" height="200">
 
-### :bulb: Working with Notion AI Property (optional)
+#### :bulb: w/ Notion AI Property (optional)
 - [Notion AI Property](https://www.notion.so/ja-jp/help/guides/5-ai-prompts-to-surface-fresh-insights-from-your-databases) allows you to add **custom autofill property** to each DB record.
 - Add column to your Notion DB and select `AI custom autofill`
 - Set any prompt you like (e.g. summarization, extracting key ideas ...)
