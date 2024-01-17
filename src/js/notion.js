@@ -207,7 +207,7 @@ export default class Notion {
         body: JSON.stringify(body),
       });
       const data = await res.json();
-      data.results.forEach((result) => {
+      data.results?.forEach((result) => {
         const option = `<option value=${result.id}>${result.title[0].text.content}</option>`;
         document
           .getElementById('js-select-database')
