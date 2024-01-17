@@ -69,7 +69,7 @@ export default class Notion {
     const filter = {
       property: 'URL',
       rich_text: {
-        contains: `/${paperId}`,
+        contains: `${paperId}`,
       },
     };
 
