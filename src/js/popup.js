@@ -86,17 +86,20 @@ class UI {
     }, 200);
   }
   isDebugUrl(url) {
-    return url && url.indexOf('chrome-extension://') === 0;
+    return url?.startsWith('chrome-extension://') || false;
   }
   isArxivUrl(url) {
-    return url && url.indexOf('https://arxiv.org') === 0;
+    return url?.startsWith('https://arxiv.org') || false;
+  }
+  isOpenReviewUrl(url) {
+    return url?.startsWith('https://openreview.net/') || false;
   }
   isPDF(url) {
     return url && url.split('.').pop() === 'pdf';
   }
   async getPaperInfo(url) {
     if (this.isArxivUrl(url)) return this.getArXivInfo(url);
-    //     if (this.isPDF(url)) return this.getPDFInfo(url); // TODO
+    if (this.isOpenReviewUrl(url)) return this.getOpenReviewInfo(url);
   }
   parseArXivId(str) {
     const paperId = str.match(/\d+.\d+/);
@@ -151,6 +154,49 @@ class UI {
       url: url,
       published: published,
       comment: comment,
+      publisher: 'arXiv',
+    };
+  }
+
+  async getOpenReviewInfo(url) {
+    this.showProgressBar();
+    const id = new URLSearchParams(new URL(url).search).get('id');
+
+    const res = await fetch(url);
+    const html = await res.text();
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(html, 'text/html');
+
+    const authors = Array.from(
+      xml.querySelectorAll('meta[name="citation_author"]')
+    ).map((author) => {
+      return author.getAttribute('content');
+    });
+    const paperTitle = xml
+      .querySelector('meta[name="citation_title"]')
+      .getAttribute('content');
+
+    const abst = xml
+      .querySelector('meta[name="citation_abstract"]')
+      .getAttribute('content');
+
+    const date = xml
+      .querySelector('meta[name="citation_online_date"]')
+      .getAttribute('content');
+    // -> ISO 8601 date string
+    const published = new Date(date).toISOString().split('T')[0];
+    const comment = 'none';
+
+    this.setFormContents(paperTitle, abst, comment, authors);
+    return {
+      id: id,
+      title: paperTitle,
+      abst: abst,
+      authors: authors,
+      url: url,
+      published: published,
+      comment: comment,
+      publisher: 'OpenReview',
     };
   }
 

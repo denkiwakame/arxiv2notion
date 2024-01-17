@@ -108,6 +108,7 @@ export default class Notion {
     const paperUrl = data.url;
     const authorsFormatted = data.authors.join(', ');
     const published = data.published;
+    const publisher = data.publisher;
     const comment = data.comment;
     const authors = authorsFormatted.split(', ');
     const authorsMultiSelect = authors.map((author) => {
@@ -129,7 +130,7 @@ export default class Notion {
         Publisher: {
           id: 'conference',
           type: 'select',
-          select: { name: 'arXiv' },
+          select: { name: publisher },
         },
         URL: {
           id: 'url',
