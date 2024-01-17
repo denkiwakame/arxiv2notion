@@ -167,10 +167,11 @@ class UI {
     const parser = new DOMParser();
     const xml = parser.parseFromString(html, 'text/html');
 
-    const authors = Array.from(
+    const authorsArray = Array.from(
       xml.querySelectorAll('meta[name="citation_author"]'),
       (author) => author.getAttribute('content')
-    ).filter(Boolean) || ['Anonymous'];
+    );
+    const authors = authorsArray.length ? authorsArray : ['Anonymous'];
 
     const paperTitle = xml
       .querySelector('meta[name="citation_title"]')
