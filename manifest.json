@@ -16,12 +16,8 @@
     "page": "options.html",
     "open_in_tab": false
   },
-  "permissions": ["tabs", "storage"],
-  "host_permissions": [
-    "<all_urls>",
-    "*://api.notion.com/*",
-    "*://www.notion.so/*"
-  ],
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["*://api.notion.com/*", "*://www.notion.so/*"],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   }
