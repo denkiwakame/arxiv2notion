@@ -3,7 +3,7 @@ All notable changes to this repository will be documented in this file.
 
 ## [1.2.0] - 2024-01-17
 ### Added
-- 🚀 **New Feature:** OpenReview URL support (experimental) [PR#11](https://github.com/denkiwakame/arxiv2notion/pull/11)
+- 🚀 **New Feature:** OpenReview URL support (experimental) [PR#11](https://github.com/denkiwakame/arxiv2notion/pull/11) [PR#12](https://github.com/denkiwakame/arxiv2notion/pull/12)
 ### Changed
 - restrict host_permission [PR#10](https://github.com/denkiwakame/arxiv2notion/pull/10)
 
