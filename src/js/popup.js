@@ -168,10 +168,10 @@ class UI {
     const xml = parser.parseFromString(html, 'text/html');
 
     const authors = Array.from(
-      xml.querySelectorAll('meta[name="citation_author"]')
-    ).map((author) => {
-      return author.getAttribute('content');
-    });
+      xml.querySelectorAll('meta[name="citation_author"]'),
+      (author) => author.getAttribute('content')
+    ).filter(Boolean) || ['Anonymous'];
+
     const paperTitle = xml
       .querySelector('meta[name="citation_title"]')
       .getAttribute('content');
@@ -181,7 +181,7 @@ class UI {
       .getAttribute('content');
 
     const date = xml
-      .querySelector('meta[name="citation_online_date"]')
+      .querySelector('meta[name="citation_publication_date"]')
       .getAttribute('content');
     // -> ISO 8601 date string
     const published = new Date(date).toISOString().split('T')[0];
