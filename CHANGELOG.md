@@ -1,6 +1,12 @@
 # CHANGELOG
 All notable changes to this repository will be documented in this file.
 
+## [1.2.0] - 2024-01-17
+### Added
+- 🚀 **New Feature:** OpenReview URL support (experimental) [PR#11](https://github.com/denkiwakame/arxiv2notion/pull/11)
+### Changed
+- restrict host_permission [PR#10](https://github.com/denkiwakame/arxiv2notion/pull/10)
+
 ## [1.1.0] - 2024-01-10
 ### Added
 - 🚀 **New Feature:** check duplicated entry [PR#9](https://github.com/wangjksjtu/arxiv2notionplus/issues/1)
