@@ -108,6 +108,7 @@ export default class Notion {
     const paperUrl = data.url;
     const authorsFormatted = data.authors.join(', ');
     const published = data.published;
+    const publisher = data.publisher;
     const comment = data.comment;
     const authors = authorsFormatted.split(', ');
     const authorsMultiSelect = authors.map((author) => {
@@ -129,7 +130,7 @@ export default class Notion {
         Publisher: {
           id: 'conference',
           type: 'select',
-          select: { name: 'arXiv' },
+          select: { name: publisher },
         },
         URL: {
           id: 'url',
@@ -207,7 +208,7 @@ export default class Notion {
         body: JSON.stringify(body),
       });
       const data = await res.json();
-      data.results.forEach((result) => {
+      data.results?.forEach((result) => {
         const option = `<option value=${result.id}>${result.title[0].text.content}</option>`;
         document
           .getElementById('js-select-database')
