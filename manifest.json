@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "arxiv2notion",
   "description": "easy-to-use arXiv clipper for notion.so",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "icons": {
     "128": "icon128.png"
   },
@@ -16,8 +16,12 @@
     "page": "options.html",
     "open_in_tab": false
   },
-  "permissions": ["activeTab", "storage"],
-  "host_permissions": ["*://api.notion.com/*", "*://www.notion.so/*"],
+  "permissions": ["tabs", "activeTab", "storage"],
+  "host_permissions": [
+    "*://api.notion.com/*",
+    "*://www.notion.so/*",
+    "*://openreview.net/*"
+  ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   }
