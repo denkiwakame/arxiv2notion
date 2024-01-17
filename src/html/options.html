@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head></head>
   <body>
@@ -6,13 +6,15 @@
       <div class="uk-margin uk-margin-bottom" uk-margin>
         <legend class="uk-legend uk-margin-top">Notion Integration ID</legend>
         <a
-          class="uk-form-label"
+          class="uk-link-text"
           target="_blank"
           href="https://www.notion.so/my-integrations/"
+          uk-tooltip="title: Get integration ID; pos:right"
           >https://www.notion.so/my-integrations/</a
         >
         <div class="uk-inline">
-          <button id="js-visible-btn"
+          <button
+            id="js-visible-btn"
             class="uk-form-icon uk-form-icon-flip"
             uk-icon="lock"
           ></button>
@@ -23,7 +25,11 @@
             placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           />
         </div>
-        <button id="js-save-btn" class="uk-icon-button uk-margin-small-left" uk-icon="plus" />
+        <button
+          id="js-save-btn"
+          class="uk-icon-button uk-margin-small-left"
+          uk-icon="plus"
+        />
       </div>
       <div id="js-message-container"></div>
     </div>
