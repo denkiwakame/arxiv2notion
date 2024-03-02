@@ -3,6 +3,9 @@
 [![Changelog](https://img.shields.io/badge/changelog-see%20here-blue.svg)](CHANGELOG.md)
 [![GitHub release](https://img.shields.io/github/release/denkiwakame/arxiv2notion.svg)](https://github.com/denkiwakame/arxiv2notion/releases)
 
+#### Supported Format
+[![arxiv](https://img.shields.io/badge/arxiv.org-API-red.svg)](https://info.arxiv.org/help/api/index.html)
+[![arxiv](https://img.shields.io/badge/openreview.net-parser-purple.svg)](https://openreview.net/)
 
 Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
 
