@@ -12,7 +12,6 @@ UIKit.use(Icons);
 
 const TEST_URL = 'https://arxiv.org/abs/2308.04079';
 const ARXIV_API = 'http://export.arxiv.org/api/query/search_query';
-
 class UI {
   constructor() {
     this.setupProgressBar();
@@ -101,10 +100,9 @@ class UI {
     if (this.isArxivUrl(url)) return this.getArXivInfo(url);
     if (this.isOpenReviewUrl(url)) return this.getOpenReviewInfo(url);
   }
-  parseArXivId(str) {
-    const paperId = str.match(/\d+.\d+/);
-    return paperId;
-  }
+  // ref: https://info.arxiv.org/help/arxiv_identifier.html
+  // e.g. (new id format: 2404.16782) | (old id format: hep-th/0702063)
+  parseArXivId = (str) => str.match(/(\d+\.\d+$)|((\w|-)+\/\d+$)/)?.[0];
 
   setFormContents(paperTitle, abst, comment, authors) {
     document.getElementById('js-title').value = paperTitle;
@@ -135,7 +133,7 @@ class UI {
     console.log(xmlData);
 
     const entry = xmlData.querySelector('entry');
-    const id = entry.querySelector('id')?.textContent.match(/\d+\.\d+/)?.[0];
+    const id = this.parseArXivId(entry.querySelector('id')?.textContent);
     const paperTitle = entry.querySelector('title').textContent;
     const abst = entry.querySelector('summary').textContent;
     const authors = Array.from(entry.querySelectorAll('author')).map(
