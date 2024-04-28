@@ -12,8 +12,6 @@ UIKit.use(Icons);
 
 const TEST_URL = 'https://arxiv.org/abs/2308.04079';
 const ARXIV_API = 'http://export.arxiv.org/api/query/search_query';
-const ARXIV_ID_REGEX = /\d+\.\d+/; // new id format, e.g. 2404.16782
-const ARXIV_OLD_ID_REGEX = /(\w|\-)+\/\d+/; // old id format, e.g. hep-th/0702063
 class UI {
   constructor() {
     this.setupProgressBar();
@@ -102,10 +100,9 @@ class UI {
     if (this.isArxivUrl(url)) return this.getArXivInfo(url);
     if (this.isOpenReviewUrl(url)) return this.getOpenReviewInfo(url);
   }
-  parseArXivId(str) {
-    const paperId = str.match(ARXIV_ID_REGEX)?.[0] || str.match(ARXIV_OLD_ID_REGEX)?.[0];
-    return paperId;
-  }
+  // ref: https://info.arxiv.org/help/arxiv_identifier.html
+  // e.g. (new id format: 2404.16782) | (old id format: hep-th/0702063)
+  parseArXivId = (str) => str.match(/(\d+\.\d+$)|((\w|-)+\/\d+$)/)?.[0];
 
   setFormContents(paperTitle, abst, comment, authors) {
     document.getElementById('js-title').value = paperTitle;
