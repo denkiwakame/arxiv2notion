@@ -7,11 +7,12 @@ import Icons from 'uikit/dist/js/uikit-icons';
 import Mustache from 'mustache';
 import NotionClient from './notion.js';
 import thenChrome from 'then-chrome';
+import urlParser from './parsers.js';
 
 UIKit.use(Icons);
 
 const TEST_URL = 'https://arxiv.org/abs/2308.04079';
-const ARXIV_API = 'http://export.arxiv.org/api/query/search_query';
+
 class UI {
   constructor() {
     this.setupProgressBar();
@@ -97,13 +98,11 @@ class UI {
     return url && url.split('.').pop() === 'pdf';
   }
   async getPaperInfo(url) {
-    if (this.isArxivUrl(url)) return this.getArXivInfo(url);
-    if (this.isOpenReviewUrl(url)) return this.getOpenReviewInfo(url);
+    this.showProgressBar();
+    const data = await urlParser.parse(url);
+    this.setFormContents(data.title, data.abst, data.comment, data.authors);
+    return data;
   }
-  // ref: https://info.arxiv.org/help/arxiv_identifier.html
-  // e.g. (new id format: 2404.16782) | (old id format: hep-th/0702063)
-  parseArXivId = (str) => str.match(/(\d+\.\d+$)|((\w|-)+\/\d+$)/)?.[0];
-
   setFormContents(paperTitle, abst, comment, authors) {
     document.getElementById('js-title').value = paperTitle;
     document.getElementById('js-abst').value = abst;
@@ -116,87 +115,6 @@ class UI {
         .getElementById('js-chip-container')
         .insertAdjacentHTML('beforeend', rendered);
     });
-  }
-
-  async getArXivInfo(url) {
-    this.showProgressBar();
-    const paperId = this.parseArXivId(url);
-
-    const res = await fetch(ARXIV_API + '?id_list=' + paperId.toString());
-    if (res.status != 200) {
-      console.error('arXiv API request failed');
-      return;
-    }
-    const data = await res.text(); // TODO: error handling
-    console.log(res.status);
-    const xmlData = new window.DOMParser().parseFromString(data, 'text/xml');
-    console.log(xmlData);
-
-    const entry = xmlData.querySelector('entry');
-    const id = this.parseArXivId(entry.querySelector('id')?.textContent);
-    const paperTitle = entry.querySelector('title').textContent;
-    const abst = entry.querySelector('summary').textContent;
-    const authors = Array.from(entry.querySelectorAll('author')).map(
-      (author) => {
-        return author.textContent.trim();
-      }
-    );
-    const published = entry.querySelector('published').textContent;
-    const comment = entry.querySelector('comment')?.textContent ?? 'none';
-    this.setFormContents(paperTitle, abst, comment, authors);
-    return {
-      id: id,
-      title: paperTitle,
-      abst: abst,
-      authors: authors,
-      url: url,
-      published: published,
-      comment: comment,
-      publisher: 'arXiv',
-    };
-  }
-
-  async getOpenReviewInfo(url) {
-    this.showProgressBar();
-    const id = new URLSearchParams(new URL(url).search).get('id');
-
-    const res = await fetch(url);
-    const html = await res.text();
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(html, 'text/html');
-
-    const authorsArray = Array.from(
-      xml.querySelectorAll('meta[name="citation_author"]'),
-      (author) => author.getAttribute('content')
-    );
-    const authors = authorsArray.length ? authorsArray : ['Anonymous'];
-
-    const paperTitle = xml
-      .querySelector('meta[name="citation_title"]')
-      .getAttribute('content');
-
-    const abst = xml
-      .querySelector('meta[name="citation_abstract"]')
-      .getAttribute('content');
-
-    const date = xml
-      .querySelector('meta[name="citation_publication_date"]')
-      .getAttribute('content');
-    // -> ISO 8601 date string
-    const published = new Date(date).toISOString().split('T')[0];
-    const comment = 'none';
-
-    this.setFormContents(paperTitle, abst, comment, authors);
-    return {
-      id: id,
-      title: paperTitle,
-      abst: abst,
-      authors: authors,
-      url: url,
-      published: published,
-      comment: comment,
-      publisher: 'OpenReview',
-    };
   }
 
   renderMessage(type, message, overwrite = false) {
