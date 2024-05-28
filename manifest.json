@@ -20,7 +20,8 @@
   "host_permissions": [
     "*://api.notion.com/*",
     "*://www.notion.so/*",
-    "*://openreview.net/*"
+    "*://openreview.net/*",
+    "*://aclanthology.org/*"
   ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
