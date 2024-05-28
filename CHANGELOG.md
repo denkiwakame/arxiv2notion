@@ -1,6 +1,11 @@
 # CHANGELOG
 All notable changes to this repository will be documented in this file.
 
+## [1.3.0] - 2024-05-28
+### Added
+- 🚀 **New Feature:** ACL Anthology URL support (experimental) [PR#16](https://github.com/denkiwakame/arxiv2notion/pull/16)
+- 🚀 **New Feature:** support for old arXiv identifier [PR#15](https://github.com/denkiwakame/arxiv2notion/pull/15) @aralsea
+
 ## [1.2.0] - 2024-01-17
 ### Added
 - 🚀 **New Feature:** OpenReview URL support (experimental) [PR#11](https://github.com/denkiwakame/arxiv2notion/pull/11) [PR#12](https://github.com/denkiwakame/arxiv2notion/pull/12)

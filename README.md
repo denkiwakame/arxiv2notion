@@ -5,7 +5,8 @@
 
 #### Supported Format
 [![arxiv](https://img.shields.io/badge/arxiv.org-API-red.svg)](https://info.arxiv.org/help/api/index.html)
-[![arxiv](https://img.shields.io/badge/openreview.net-parser-purple.svg)](https://openreview.net/)
+[![openreview](https://img.shields.io/badge/openreview.net-parser-purple.svg)](https://openreview.net/)
+[![acl](https://img.shields.io/badge/aclanthology.org-parser-purple.svg)](https://aclanthology.org/)
 
 Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion API](https://developers.notion.com/)
 
@@ -17,7 +18,7 @@ Easy-to-use arXiv clipper for [Notion](https://www.notion.so) based on [Notion A
 - arxiv2notion is now available at [Chrome Store](https://chromewebstore.google.com/detail/arxiv2notion/jfgdgmjlakndggcpknmanlpgjgjbcbli) 🚀.
 
 ### b. Install Manually
-- download extension package from 
+- download extension package from
 https://github.com/denkiwakame/arxiv2notion/releases/latest
 - for Chrome, navigate to `chrome://extension`
   - drag and drop the extension from your file manager anywhere onto the extensions page
