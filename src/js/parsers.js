@@ -18,49 +18,6 @@ class URLParser {
   }
 }
 
-const openReviewParser = async (url) => {
-  const id = new URLSearchParams(new URL(url).search).get('id');
-  console.error(id);
-
-  const res = await fetch(url);
-  const html = await res.text();
-  const parser = new DOMParser();
-  const xml = parser.parseFromString(html, 'text/html');
-  console.error(xml);
-
-  const authorsArray = Array.from(
-    xml.querySelectorAll('meta[name="citation_author"]'),
-    (author) => author.getAttribute('content')
-  );
-  const authors = authorsArray.length ? authorsArray : ['Anonymous'];
-
-  const paperTitle = xml
-    .querySelector('meta[name="citation_title"]')
-    .getAttribute('content');
-
-  const abst = xml
-    .querySelector('meta[name="citation_abstract"]')
-    .getAttribute('content');
-
-  const date = xml
-    .querySelector('meta[name="citation_online_date"]')
-    .getAttribute('content');
-  // -> ISO 8601 date string
-  const published = new Date(date).toISOString().split('T')[0];
-  const comment = 'none';
-
-  return {
-    id: id,
-    title: paperTitle,
-    abst: abst,
-    authors: authors,
-    url: url,
-    published: published,
-    comment: comment,
-    publisher: 'OpenReview',
-  };
-};
-
 const arXivParser = async (url) => {
   const ARXIV_API = 'http://export.arxiv.org/api/query/search_query';
   // ref: https://info.arxiv.org/help/arxiv_identifier.html
@@ -100,8 +57,91 @@ const arXivParser = async (url) => {
   };
 };
 
+const openReviewParser = async (url) => {
+  const id = new URLSearchParams(new URL(url).search).get('id');
+  const res = await fetch(url);
+  const html = await res.text();
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(html, 'text/html');
+
+  const authorsArray = Array.from(
+    xml.querySelectorAll('meta[name="citation_author"]'),
+    (author) => author.getAttribute('content')
+  );
+  const authors = authorsArray.length ? authorsArray : ['Anonymous'];
+
+  const paperTitle = xml
+    .querySelector('meta[name="citation_title"]')
+    .getAttribute('content');
+
+  const abst = xml
+    .querySelector('meta[name="citation_abstract"]')
+    .getAttribute('content');
+
+  const date = xml
+    .querySelector('meta[name="citation_online_date"]')
+    .getAttribute('content');
+  // -> ISO 8601 date string
+  const published = new Date(date).toISOString().split('T')[0];
+  const comment = 'none';
+
+  return {
+    id: id,
+    title: paperTitle,
+    abst: abst,
+    authors: authors,
+    url: url,
+    published: published,
+    comment: comment,
+    publisher: 'OpenReview',
+  };
+};
+
+const aclAnthologyParser = async (url) => {
+  const res = await fetch(url);
+  const html = await res.text();
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(html, 'text/html');
+
+  const id = xml
+    .querySelector('meta[name="citation_doi"]')
+    .getAttribute('content');
+  const authors = Array.from(
+    xml.querySelectorAll('meta[name="citation_author"]'),
+    (author) => author.getAttribute('content')
+  );
+
+  const paperTitle = xml
+    .querySelector('meta[name="citation_title"]')
+    .getAttribute('content');
+
+  const abst = 'none';
+  const date = xml
+    .querySelector('meta[name="citation_publication_date"]')
+    .getAttribute('content');
+  // -> ISO 8601 date string
+  const published = new Date(date).toISOString().split('T')[0];
+  const publisher = xml
+    .querySelectorAll('.acl-paper-details dd')[6]
+    .textContent.replaceAll('\n', '');
+  const comment = xml
+    .querySelector('meta[name="citation_pdf_url"]')
+    .getAttribute('content');
+  return {
+    id: id,
+    title: paperTitle,
+    abst: abst,
+    authors: authors,
+    url: url,
+    published: published,
+    comment: comment,
+    publisher: publisher,
+  };
+};
+
 const urlParser = new URLParser();
 urlParser.addParser('https://openreview.net/', openReviewParser);
 urlParser.addParser('https://arxiv.org', arXivParser);
+urlParser.addParser('https://aclanthology.org', aclAnthologyParser);
 
 export default urlParser;

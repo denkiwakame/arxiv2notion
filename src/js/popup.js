@@ -12,6 +12,7 @@ import urlParser from './parsers.js';
 UIKit.use(Icons);
 
 const TEST_URL = 'https://arxiv.org/abs/2308.04079';
+// const TEST_URL = 'https://aclanthology.org/2023.ijcnlp-main.1/';
 
 class UI {
   constructor() {
