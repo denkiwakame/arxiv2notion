@@ -27,33 +27,36 @@ https://github.com/denkiwakame/arxiv2notion/releases/latest
 ## ⚙️ Setup
 
 ### 1. Add arxiv2notion integration
-- follow the instruction of [Notion API](https://developers.notion.com/docs/getting-started)
-  - navigate to [My Integrations](https://www.notion.so/my-integrations)
-  - `+ New integration`
+- navigate to [My Integrations](https://www.notion.so/profile/integrations)
+- `+ New Integration`
   - **associated workspace:** select your workspace where you save arXiv articles
+  - **Type:** select `Internal`
+  - **name:** set any name of your choice
+<img src="https://github.com/user-attachments/assets/137a6dc2-e280-46d9-8f89-43c6bff9da41" height="200" />
 
-<img src="doc/my_integration.png" height="200">
+> [!NOTE]
+> For more detailed information about Notion integration, please refer to the official documentation at https://developers.notion.com/docs/getting-started.
 
 ### 2. Configure the extension
 - right-click on the extension icon > `Options`
-  - copy **integration id (not the secret token!)** (see figures below) from `https://hwww.notion.so/my-integrations/internal/${integration-id}`
+  - copy **integration id (not the secret token!)** (see figures below) from `https://www.notion.so/my-integrations/internal/${integration-id}`
   - paste the `integration id` and click on `+` button.
   - if your entered id is valid, you can see the following callback messages.
 
 > [!NOTE]
-> To enhance security, arxiv2notion retrieves the Notion API key on-demand through integration ID instead of storing it directly in Chrome local storage. **Please ensure you are logged into notion.so while using this extension.**
+> To enhance security, arxiv2notion retrieves the Notion API key (integration secrets) on-demand through integration ID instead of storing it directly in Chrome local storage. **Please ensure you are logged into notion.so while using this extension.**
 
 
-<img src="doc/integration_id.png" height="300"><img src="doc/option.png" height="300">
+<img src="https://github.com/user-attachments/assets/b9e5b87a-e981-4ab6-b59e-75c7c2c7c667" height="300"><img src="https://github.com/user-attachments/assets/d82a0b37-fdc3-44b4-a89f-31997b36a19e" height="300">
 
 ### 3. Create databases in Notion
 #### from template (recommended)
 - clone the public template [here](https://denkiwakame.notion.site/597cdd58bded4375b1cbe073b2ed6f5d?v=63fcbfda57824b239b66e52dde841cdf) to your own notion workspace
-- add connection to target databases via `...` > `+ Add connections` > `arxiv2notion`
+- add connection to target databases via `...` > (scroll down...) `Connect to` > `{your integration name}`
 
-![invite_integration](doc/connection.png)
+<img src="https://github.com/user-attachments/assets/1535ef61-749c-4670-8c37-57ac3d5240b4" height="400">
 
-- you can switch multiple DBs by adding the connection to these pages, respectively.
+- Integration will have access writes to all child DBs.
 
 ![multiple_db](doc/multiple_db.png)
 
