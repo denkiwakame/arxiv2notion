@@ -1,6 +1,10 @@
 # CHANGELOG
 All notable changes to this repository will be documented in this file.
 
+## [1.4.0] - 2024-07-18
+### Fixed
+- updates for the latest Notion dashboard @denkiwakame [PR#19](https://github.com/denkiwakame/arxiv2notion/pull/19)
+
 ## [1.3.0] - 2024-05-28
 ### Added
 - 🚀 **New Feature:** ACL Anthology URL support (experimental) [PR#16](https://github.com/denkiwakame/arxiv2notion/pull/16)
