@@ -40,26 +40,16 @@ class TokenManager {
     if (!chrome.storage) return;
     chrome.storage.local.get(this.storageKey, (d) => {
       if (!d) return;
-      this.input.value = this.toIid(d.botId);
+      this.input.value = d.botId;
     });
   }
-  toIid(botId) {
-    return botId.replaceAll('-', '');
-  }
-  toBotId(iid) {
-    return `${iid.slice(0, 8)}-${iid.slice(8, 12)}-${iid.slice(
-      12,
-      16
-    )}-${iid.slice(16, 20)}-${iid.slice(20, iid.length)}`;
-  }
   async saveIntegrationId() {
-    const iid = this.input.value;
-    if (!iid.trim().length || iid.length != 32) {
+    const botId = this.input.value;
+    if (!botId.trim().length || botId.length != 36) {
       console.log('invalid!');
-      this.renderMessage('danger', 'Invalid integration ID (32 char).');
+      this.renderMessage('danger', 'Invalid integration ID (36 char).');
       return;
     }
-    const botId = this.toBotId(iid);
     console.log(botId);
     await chrome.storage.local.set({
       botId: botId,
