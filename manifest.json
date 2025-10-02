@@ -22,7 +22,9 @@
     "*://export.arxiv.org/*",
     "*://www.notion.so/*",
     "*://openreview.net/*",
-    "*://aclanthology.org/*"
+    "*://aclanthology.org/*",
+    "*://arxiv.org/*",
+    "*://www.arxiv.org/*"
   ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
