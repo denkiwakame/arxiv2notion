@@ -19,15 +19,21 @@ class URLParser {
 }
 
 const arXivParser = async (url) => {
-  const ARXIV_API = 'http://export.arxiv.org/api/query/search_query';
+  const ARXIV_API = 'https://export.arxiv.org/api/query/search_query';
   // ref: https://info.arxiv.org/help/arxiv_identifier.html
   // e.g. (new id format: 2404.16782) | (old id format: hep-th/0702063)
   const parseArXivId = (str) => str.match(/(\d+\.\d+$)|((\w|-)+\/\d+$)/)?.[0];
 
   const paperId = parseArXivId(url);
-  const res = await fetch(ARXIV_API + '?id_list=' + paperId.toString());
+  const res = await fetch(ARXIV_API + '?id_list=' + paperId.toString(), {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Accept: 'application/atom+xml',
+    },
+  });
   if (res.status != 200) {
-    console.error('arXiv API request failed');
+    console.error('arXiv API request failed with status:', res.status);
     return;
   }
   const data = await res.text(); // TODO: error handling
@@ -142,6 +148,7 @@ const aclAnthologyParser = async (url) => {
 const urlParser = new URLParser();
 urlParser.addParser('https://openreview.net/', openReviewParser);
 urlParser.addParser('https://arxiv.org', arXivParser);
+urlParser.addParser('https://www.arxiv.org', arXivParser);
 urlParser.addParser('https://aclanthology.org', aclAnthologyParser);
 
 export default urlParser;

@@ -11,7 +11,8 @@ import urlParser from './parsers.js';
 
 UIKit.use(Icons);
 
-const TEST_URL = 'https://arxiv.org/abs/2308.04079';
+//const TEST_URL = 'https://arxiv.org/abs/2308.04079';
+const TEST_URL = 'https://www.arxiv.org/abs/2508.20324';
 // const TEST_URL = 'https://aclanthology.org/2023.ijcnlp-main.1/';
 
 class UI {
@@ -90,7 +91,11 @@ class UI {
     return url?.startsWith('chrome-extension://') || false;
   }
   isArxivUrl(url) {
-    return url?.startsWith('https://arxiv.org') || false;
+    return (
+      url?.startsWith('https://arxiv.org') ||
+      url?.startsWith('https://www.arxiv.org') ||
+      false
+    );
   }
   isOpenReviewUrl(url) {
     return url?.startsWith('https://openreview.net/') || false;
