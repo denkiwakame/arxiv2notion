@@ -44,7 +44,7 @@ const arXivParser = async (url) => {
   const entry = xmlData.querySelector('entry');
   const id = parseArXivId(entry.querySelector('id')?.textContent);
   const paperTitle = entry.querySelector('title').textContent;
-  const abst = entry.querySelector('summary').textContent;
+  const abst = entry.querySelector('summary').textContent.replace(/\n/g, ' ').trim();
   const authors = Array.from(entry.querySelectorAll('author')).map((author) => {
     return author.textContent.trim();
   });
@@ -82,7 +82,9 @@ const openReviewParser = async (url) => {
 
   const abst = xml
     .querySelector('meta[name="citation_abstract"]')
-    .getAttribute('content');
+    .getAttribute('content')
+    .replace(/\n/g, ' ')
+    .trim();
 
   const date = xml
     .querySelector('meta[name="citation_online_date"]')
