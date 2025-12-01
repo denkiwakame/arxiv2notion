@@ -19,7 +19,7 @@ class URLParser {
 }
 
 const arXivParser = async (url) => {
-  const ARXIV_API = 'https://export.arxiv.org/api/query/search_query';
+  const ARXIV_API = 'https://export.arxiv.org/api/query';
   // ref: https://info.arxiv.org/help/arxiv_identifier.html
   // e.g. (new id format: 2404.16782) | (old id format: hep-th/0702063)
   const parseArXivId = (str) => str.match(/(\d+\.\d+$)|((\w|-)+\/\d+$)/)?.[0];
