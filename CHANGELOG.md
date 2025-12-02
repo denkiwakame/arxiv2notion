@@ -2,6 +2,14 @@
 
 All notable changes to this repository will be documented in this file.
 
+## [1.4.2] - 2025-12-2
+
+### Added
+
+### Fixed
+- Remove newlines in abstract [PR#26](https://github.com/denkiwakame/arxiv2notion/pull/26)
+- Update arxiv api [PR#27](https://github.com/denkiwakame/arxiv2notion/pull/27)
+
 ## [1.4.1] - 2024-12-19
 
 ### Added
